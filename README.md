@@ -25,7 +25,7 @@ Command: !metar
 Subcommand: Station ID.
 
 
-Data:\
+Data:
 
 Flight Category: VFR
 Raw Text
