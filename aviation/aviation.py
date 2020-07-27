@@ -83,7 +83,7 @@ class Aviation(commands.Cog):
         """
 
         # Checks to see if the input string is a ICAO or IATA input
-        if (not station_id.isalpha()) or (len(station_id) != 3) or (len(station_id) != 4):
+        if (not station_id.isalpha()) or (len(station_id) not in [3, 4]):
             return await ctx.send(f'Your input must be an ICAO or IATA code. Get more info by typing: {ctx.prefix}help {ctx.command}')
 
         # TODO: Do lookup table here and get information on it such as airport name, etc...
