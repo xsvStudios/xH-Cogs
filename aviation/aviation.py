@@ -26,7 +26,7 @@ class Aviation(commands.Cog):
             
             # Search the json list for a match
             # (doing it the long way because that's how the dataset is, and because of the complexity of 2 possible lookups per query)
-            if airport_obj is not None:
+            if airport_obj != None:
                 if len(airport_obj) > 0:
                     for x in airport_obj:
                         if airport_code_type == 'ICAO':
@@ -102,7 +102,7 @@ class Aviation(commands.Cog):
 
             # Lookup ICAO code and return object if found
             icao_lookup = self.airportLookup(station_id, 'ICAO')
-            if icao_lookup is None:
+            if icao_lookup == None:
                 return await ctx.send(f'Error: The airport ICAO code with input ID \'{station_id}\' was not found!')
 
             # Lookup was successful
@@ -112,7 +112,7 @@ class Aviation(commands.Cog):
 
             # Lookup IATA code and return object if found
             iata_lookup = self.airportLookup(station_id, 'IATA')
-            if iata_lookup is None:
+            if iata_lookup == None:
                 return await ctx.send(f'Error: The airport IATA code with input ID \'{station_id}\' was not found!')
 
             # Lookup was successful
