@@ -32,7 +32,7 @@ class Aviation(commands.Cog):
                         if airport_code_type == 'ICAO':
                             # ICAO -> 4 letters
                             if 'icao' in airport_obj[x]:
-                                if airport_obj[x]['icao'] == airport_code:
+                                if airport_obj[x]['icao'].upper() == airport_code.upper():
                                     # Match found, return x
                                     print(airport_obj[x])
                                     return airport_obj[x]
@@ -41,7 +41,7 @@ class Aviation(commands.Cog):
                             # IATA -> 3 letters
 
                             if 'iata' in airport_obj[x]:
-                                if airport_obj[x]['iata'] == airport_code:
+                                if airport_obj[x]['iata'].upper() == airport_code.upper():
                                     # Match found, return x
                                     print(airport_obj[x])
                                     return airport_obj[x]
