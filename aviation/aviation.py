@@ -31,18 +31,18 @@ class Aviation(commands.Cog):
                     for x in airport_obj:
                         if airport_code_type == 'ICAO':
                             # ICAO -> 4 letters
-                            if 'icao' in test[x]:
-                                if test[x]['icao'] == airport_code:
+                            if 'icao' in airport_obj[x]:
+                                if airport_obj[x]['icao'] == airport_code:
                                     # Match found, return x
-                                    return test[x]
+                                    return airport_obj[x]
                         
                         elif airport_code_type == 'IATA':
                             # IATA -> 3 letters
 
-                            if 'iata' in test[x]:
-                                if test[x]['iata'] == airport_code:
+                            if 'iata' in airport_obj[x]:
+                                if airport_obj[x]['iata'] == airport_code:
                                     # Match found, return x
-                                    return test[x]
+                                    return airport_obj[x]
 
             # Match wasn't found...
             return None
