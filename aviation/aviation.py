@@ -15,14 +15,17 @@ class Aviation(commands.Cog):
 
     @commands.command()
     async def metar(self, ctx, station_id: str):
-        """
-            * metar <station_id>
+        f"""
+            Gets the current weather information from a specified airport IATA or ICAO airport code.
+            General list of airports with IATA and ICAO codes: https://en.wikipedia.org/wiki/Lists_of_airports
+            IATA Codes (3 letters): https://en.wikipedia.org/wiki/IATA_airport_code
+            ICAO Codes (4 letters): https://en.wikipedia.org/wiki/ICAO_airport_code
 
-            Takes the input station id and outputs information that is associated with it with the most updated online info avaliable.
+            Will return the data in an embed to the user with useful weather information of the airport.
 
-            Example: <prefix>METAR KORD
-                <param> is station id. All station ID's found here:
-                    https://raw.githubusercontent.com/jpatokal/openflights/master/data/airports.dat
+            **Example**:
+            {ctx.prefix}metar **kord**
+            {ctx.prefix}metar **aaa**
         """
 
         try:
