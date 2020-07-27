@@ -13,6 +13,7 @@ class Aviation(commands.Cog):
     async def metar(self, ctx, station_id: str):
         """
             Gets the current weather information from a specified airport IATA or ICAO airport code.
+
             General list of airports with IATA and ICAO codes: https://en.wikipedia.org/wiki/Lists_of_airports
             IATA Codes (3 letters): https://en.wikipedia.org/wiki/IATA_airport_code
             ICAO Codes (4 letters): https://en.wikipedia.org/wiki/ICAO_airport_code
@@ -20,10 +21,12 @@ class Aviation(commands.Cog):
 
             **Example**:
             ```css
-            {ctx.prefix}metar **kord**
+            [ICAO]
+            [p]metar kord
             ```
             ```css
-            {ctx.prefix}metar **aaa**
+            [IATA]
+            [p]metar aaa
             ```
         """
 
