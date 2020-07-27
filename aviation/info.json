@@ -1,0 +1,14 @@
+{
+	"author": [
+		"AWildTeddyBear (Sgt. Cuddles#0001)",
+		"Blynd#0001"
+	],
+	"name": "Aviation",
+	"disabled": false,
+	"short": "Avaiation",
+	"description": "Aviation",
+	"tags": [],
+	"requirements": [],
+	"hidden": true,
+	"min_bot_version": "3.3.10"
+}
