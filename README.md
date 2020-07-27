@@ -18,7 +18,7 @@
 * Wind Speed
 * Wind Gust
 * Visibility
-* altimeter:  Inches in Mercury?  Format decimals .00 
+* altimeter:  Inches in Mercury? Precision is 2 decimal places. x.00
 * Sea Level
 * Sky condition
 
