@@ -34,6 +34,7 @@ class Aviation(commands.Cog):
                             if 'icao' in airport_obj[x]:
                                 if airport_obj[x]['icao'] == airport_code:
                                     # Match found, return x
+                                    print(airport_obj[x])
                                     return airport_obj[x]
                         
                         elif airport_code_type == 'IATA':
@@ -42,6 +43,7 @@ class Aviation(commands.Cog):
                             if 'iata' in airport_obj[x]:
                                 if airport_obj[x]['iata'] == airport_code:
                                     # Match found, return x
+                                    print(airport_obj[x])
                                     return airport_obj[x]
 
             # Match wasn't found...
