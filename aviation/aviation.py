@@ -21,7 +21,7 @@ class Aviation(commands.Cog):
 
         try:
             # Open local JSON file
-            with open('airports.json', 'r') as f:
+            with open('airports.json', 'r', encoding='utf-8') as f:
                 airport_obj = json.load(f)
             
             # Search the json list for a match
@@ -31,18 +31,18 @@ class Aviation(commands.Cog):
                     for x in airport_obj:
                         if airport_code_type == 'ICAO':
                             # ICAO -> 4 letters
-                            if 'icao' in x:
-                                if x['icao'] == airport_code:
+                            if 'icao' in test[x]:
+                                if test[x]['icao'] == airport_code:
                                     # Match found, return x
-                                    return x
+                                    return test[x]
                         
                         elif airport_code_type == 'IATA':
                             # IATA -> 3 letters
 
-                            if 'iata' in x:
-                                if x['iata'] == airport_code:
+                            if 'iata' in test[x]:
+                                if test[x]['iata'] == airport_code:
                                     # Match found, return x
-                                    return x
+                                    return test[x]
 
             # Match wasn't found...
             return None
