@@ -243,83 +243,76 @@ class Aviation(commands.Cog):
         
         try:
             # Construct embed
-            # embed = discord.Embed(
-            #     title=f'__**METAR for {airport_icao_code.upper()}**__',
-            #     description=f'**{metar_sanatized_str}**',
-            #     color=0x8b0eeb,
-            # )
+            embed = discord.Embed()
+            embed.title = f'__**METAR for {airport_icao_code.upper()}**__'
+            embed.description = f'**{metar_sanatized_str}**'
 
-            # embed.add_field(
-            #     name='__**Airport Information**__',
-            #     value=f'{airport_name} - {airport_city},{airport_state},{airport_country}',
-            #     inline=False
-            # )
+            embed.add_field(
+                name='__**Airport Information**__',
+                value=f'{airport_name} - {airport_city},{airport_state},{airport_country}',
+                inline=False
+            )
 
-            # embed.add_field(
-            #     name='**Station (ICAO/IATA):',
-            #     value=f'{airport_icao_code}/{airport_iata_code}',
-            #     inline=True
-            # )
-            # embed.add_field(
-            #     name='**Observed at**:',
-            #     value=metar_time['dt'],
-            #     inline=True
-            # )
-            # embed.add_field(
-            #     name='**Dewpoint**:',
-            #     value=f"{metar_dewpoint['value']}°C ({(metar_dewpoint['value'] * (9 / 5)) + 32}°F)",
-            #     inline=True
-            # )
-            # embed.add_field(
-            #     name='**Temperature**:',
-            #     value=f"{metar_temperature['value']}°C ({(metar_temperature['value'] * (9 / 5)) + 32}°F)",
-            #     inline=True
-            # )
-            # embed.add_field(
-            #     name='**Winds**:',
-            #     value=f"{metar_wind_speed['value']} knots at {metar_wind_dir['value']}°",
-            #     inline=True
-            # )
-            # embed.add_field(
-            #     name='**Visibility**:',
-            #     value=f"{metar_visibility['value'] / 1.15078}nm ({metar_visibility['value']}sm)",
-            #     inline=True
-            # )
-            # embed.add_field(
-            #     name='**Pressure**:',
-            #     value=f"{'{0:.2f}'.format(metar_altimeter['value'] * 33.86)}hPa ({metar_altimeter['value']} inHg)",
-            #     inline=True
-            # )
+            embed.add_field(
+                name='**Station (ICAO/IATA):',
+                value=f'{airport_icao_code}/{airport_iata_code}',
+                inline=True
+            )
+            embed.add_field(
+                name='**Observed at**:',
+                value=metar_time['dt'],
+                inline=True
+            )
+            embed.add_field(
+                name='**Dewpoint**:',
+                value=f"{metar_dewpoint['value']}°C ({(metar_dewpoint['value'] * (9 / 5)) + 32}°F)",
+                inline=True
+            )
+            embed.add_field(
+                name='**Temperature**:',
+                value=f"{metar_temperature['value']}°C ({(metar_temperature['value'] * (9 / 5)) + 32}°F)",
+                inline=True
+            )
+            embed.add_field(
+                name='**Winds**:',
+                value=f"{metar_wind_speed['value']} knots at {metar_wind_dir['value']}°",
+                inline=True
+            )
+            embed.add_field(
+                name='**Visibility**:',
+                value=f"{metar_visibility['value'] / 1.15078}nm ({metar_visibility['value']}sm)",
+                inline=True
+            )
+            embed.add_field(
+                name='**Pressure**:',
+                value=f"{'{0:.2f}'.format(metar_altimeter['value'] * 33.86)}hPa ({metar_altimeter['value']} inHg)",
+                inline=True
+            )
 
-            # embed.add_field(
-            #     name='__**Sky Conditions**__:',
-            #     value=f"{metar_clouds[0]['']}",
-            #     inline=True
-            # )
+            embed.add_field(
+                name='__**Sky Conditions**__:',
+                value=f"{metar_clouds[0]['']}",
+                inline=True
+            )
 
-            # embed.add_field(
-            #     name='__**Flight Category**__:',
-            #     value=metar_flight_rules,
-            #     inline=True
-            # )
+            embed.add_field(
+                name='__**Flight Category**__:',
+                value=metar_flight_rules,
+                inline=True
+            )
 
-            # embed.add_field(
-            #     name='__**Meta Information**__:',
-            #     value=f"Time at station: {metar_meta['timestamp']}\nStation last updated: {metar_meta['stations_updated']}\nLast cached event: {metar_meta['cache-timestamp']}",
-            #     inline=False
-            # )
-
-            discordEmbed = discord.Embed()
-            discordEmbed.title = 'TEST TITLE'
-            discordEmbed.description = 'TEST DESCRIPTION'
-            # discordEmbed.color = 0xffaabb
+            embed.add_field(
+                name='__**Meta Information**__:',
+                value=f"Time at station: {metar_meta['timestamp']}\nStation last updated: {metar_meta['stations_updated']}\nLast cached event: {metar_meta['cache-timestamp']}",
+                inline=False
+            )
 
             # Set UTC date on timestamp so discord can parse it
-            # discordEmbed.timestamp(datetime.utcnow())
+            embed.timestamp(datetime.utcnow())
 
             # Send embed
             return await ctx.send(
-                embed=discordEmbed
+                embed=embed
             )
 
         except Exception as e:
