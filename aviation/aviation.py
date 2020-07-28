@@ -247,12 +247,12 @@ class Aviation(commands.Cog):
             # body += f"**Observed at**: {metar_time['dt']}\n"
             # body += f"**Dewpoint**: {metar_dewpoint['value']}°C ({(metar_dewpoint['value'] * (9 / 5)) + 32}°F)\n"
             # body += f"**Temperature**: {metar_temperature['value']}°C ({(metar_temperature['value'] * (9 / 5)) + 32}°F)\n"
-            body += f"**Winds**: {metar_wind_speed['value']} knots at {metar_wind_dir['value']}°\n"
-            body += f"**Visibility**: {metar_visibility['value'] / 1.15078}nm ({metar_visibility['value']}sm)\n"
-            converted = '{0:.2f}'.format(metar_altimeter['value'] * 33.86)
-            body += f"**Pressure**: {converted}hPa ({metar_altimeter['value']} inHg)\n"
-            body += f"\n\nTime at station: {metar_meta['timestamp']}\n"
-            body += f"Station last updated: {metar_meta['stations_updated']}\n"
+            # body += f"**Winds**: {metar_wind_speed['value']} knots at {metar_wind_dir['value']}°\n"
+            # body += f"**Visibility**: {metar_visibility['value'] / 1.15078}nm ({metar_visibility['value']}sm)\n"
+            # converted = '{0:.2f}'.format(metar_altimeter['value'] * 33.86)
+            # body += f"**Pressure**: {converted}hPa ({metar_altimeter['value']} inHg)\n"
+            # body += f"\n\nTime at station: {metar_meta['timestamp']}\n"
+            # body += f"Station last updated: {metar_meta['stations_updated']}\n"
 
             print(f'Body length: {len(body)}')
 
