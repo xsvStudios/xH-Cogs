@@ -251,8 +251,7 @@ class Aviation(commands.Cog):
                 body += f"**Station (ICAO/IATA)**: {airport_icao_code}/{airport_iata_code}\n"
 
             # Do some string magic to make the datetime what these guys want...
-            t = metar_time['dt']
-            t = t.replace(':', '')
+            t = metar_time['dt'].replace(':', '')
             body += f"**Observed at**: {t[: t.find('T')]} {t[t.find('T') + 1 : t.find('Z') - 2]}Z\n"
             body += f"**Temperature**: {metar_temperature['value']}°C ({'{0:.2f}'.format((metar_temperature['value'] * (9 / 5)) + 32)}°F)\n"
             body += f"**Dewpoint**: {metar_dewpoint['value']}°C ({'{0:.2f}'.format((metar_dewpoint['value'] * (9 / 5)) + 32)}°F)\n"
@@ -261,8 +260,7 @@ class Aviation(commands.Cog):
             body += f"**Pressure**: {'{0:.2f}'.format(metar_altimeter['value'] * 33.86)}hPa ({metar_altimeter['value']} inHg)\n\n"
 
             # Same as above
-            ts = metar_meta['timestamp']
-            ts = ts.replace(':', '')
+            ts = metar_meta['timestamp'].replace(':', '')
             body += f"**Time at station**: {ts[: ts.find('T')]} {t[t.find('T') + 1 : t.find('Z') - 2]}Z\n"
             body += f"**Station last updated**: {metar_meta['stations_updated']}\n"
 
