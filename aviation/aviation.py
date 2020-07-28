@@ -3,7 +3,6 @@ from redbot.core import commands
 
 from datetime import datetime
 import json
-
 import os
 
 class Aviation(commands.Cog):
@@ -20,10 +19,6 @@ class Aviation(commands.Cog):
             Searches the lookup file for the specefied ICAO or IATA code and returns the hit if found.
             TODO: Make this more efficient by loading it only once in the __init__ of the cog so we don't waste time loading it again.
         """
-
-        print(f'airportLookup({airport_code}, {airport_code_type})')
-        dir_path = os.path.dirname(os.path.realpath(__file__))
-        print(dir_path)
 
         try:
             # Open local JSON file
@@ -50,14 +45,11 @@ class Aviation(commands.Cog):
                                     return airport_obj[x]
 
             # Match wasn't found...
-            print('match not found...')
             return None
-        except Exception as e:
-            print(e)
+        except:
             # Something blew up?
             return None
 
-        print('got to end of scope here')
         return None
 
     def getMetarInfo(self):
