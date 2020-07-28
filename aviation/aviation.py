@@ -233,8 +233,8 @@ class Aviation(commands.Cog):
             # metar_runway_visibility = apiResponse['runway_visibility']
             metar_temperature = apiResponse['temperature'] # repr, value, spoken
             # metar_units = apiResponse['units'] # altimeter, altitude, temperature, visibility, wind_speed
-        except Exception as e:
-            print(f'err in setting vars: {e}')
+        except:
+            return await ctx.send('It seems something went wrong when setting some variables. Please try another one later...')
 
         # End performance timer for total time
         # elapsed_time_in_ms_for_lookup = '{0:.2f}'.format(((time() - start_time) * 1000))
@@ -306,7 +306,7 @@ class Aviation(commands.Cog):
                 )
 
             # Send embed
-            await ctx.channel.send(embed=embed)
+            return await ctx.send(embed=embed)
 
         except:
-            pass
+            return await ctx.send('It seems something went really wrong building the embed. Please try again later...')
