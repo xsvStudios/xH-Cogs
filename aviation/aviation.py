@@ -294,7 +294,7 @@ class Aviation(commands.Cog):
             dt = datetime.datetime.now()
             unix_ts = str(dt.replace(tzinfo=datetime.timezone.utc).timestamp())
             embed.set_image(
-                url=f'https://tilecache.rainviewer.com/v2/radar/{unix_ts[:unix_ts.find(.)]}/512/2/{airport_latitude}/{airport_longitude}/1/0_0.png'
+                url=f'https://tilecache.rainviewer.com/v2/radar/{unix_ts[:unix_ts.find('.')]}/512/2/{airport_latitude}/{airport_longitude}/1/0_0.png'
             )
 
             # Send embed
