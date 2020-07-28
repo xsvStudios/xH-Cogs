@@ -244,7 +244,8 @@ class Aviation(commands.Cog):
                 body += f"**Station (ICAO/IATA)**: {airport_icao_code}/{airport_iata_code}\n"
 
             t = metar_time['dt']
-            body += f"**Observed at**: {t[: t.find('T')]} {t[t.find('T') + 1 : t.find('T') + 3]}{t[t.find('T') + 2 : t.find('T') + 4]}{t[t.find('T') + 4 : t.find('T') + 6]}Z\n"
+            t = t.replace(':', '')
+            body += f"**Observed at**: {t[: t.find('T')]} {t[t.find('T') + 1 : t.find('Z') - 2]}Z\n"
             body += f"**Temperature**: {metar_temperature['value']}°C ({(metar_temperature['value'] * (9 / 5)) + 32}°F)\n"
             body += f"**Dewpoint**: {metar_dewpoint['value']}°C ({(metar_dewpoint['value'] * (9 / 5)) + 32}°F)\n"
             body += f"**Winds**: {metar_wind_dir['value']}° at {metar_wind_speed['value']} knots\n"
@@ -252,7 +253,8 @@ class Aviation(commands.Cog):
             body += f"**Pressure**: {'{0:.2f}'.format(metar_altimeter['value'] * 33.86)}hPa ({metar_altimeter['value']} inHg)\n\n"
 
             ts = metar_meta['timestamp']
-            body += f"**Time at station**: {ts[: ts.find('T')]} {ts[ts.find('T') + 1 : ts.find('T') + 3]}{ts[ts.find('T') + 2 : ts.find('T') + 4]}{ts[ts.find('T') + 4 : ts.find('T') + 6]}Z\n"
+            ts = ts.replace(':', '')
+            body += f"**Time at station**: {ts[: ts.find('T')]} {t[t.find('T') + 1 : t.find('Z') - 2]}Z\n"
             body += f"**Station last updated**: {metar_meta['stations_updated']}\n"
 
             # Construct embed
