@@ -243,11 +243,11 @@ class Aviation(commands.Cog):
         
         try:
             # Construct embed
-            embed = discord.Embed(
-                title=f'__**METAR for {airport_icao_code.upper()}**__',
-                description=f'**{metar_sanatized_str}**',
-                color=0x8b0eeb,
-            )
+            # embed = discord.Embed(
+            #     title=f'__**METAR for {airport_icao_code.upper()}**__',
+            #     description=f'**{metar_sanatized_str}**',
+            #     color=0x8b0eeb,
+            # )
 
             # embed.add_field(
             #     name='__**Airport Information**__',
@@ -309,12 +309,14 @@ class Aviation(commands.Cog):
             #     inline=False
             # )
 
+            discordEmbed = discord.Embed(title='TEST EMBED', description='TEST DESCRIPTION', color=0xffaabb)
+
             # Set UTC date on timestamp so discord can parse it
-            embed.timestamp(datetime.utcnow())
+            discordEmbed.timestamp(datetime.utcnow())
 
             # Send embed
             return await ctx.send(
-                embed=embed
+                embed=discordEmbed
             )
 
         except Exception as e:
