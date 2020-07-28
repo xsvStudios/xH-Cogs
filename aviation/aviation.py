@@ -98,6 +98,9 @@ class Aviation(commands.Cog):
         # Define api call url
         apiurl = f'https://avwx.rest/api/metar/{icao_code}?options=&airport=true&reporting=true&format=json&onfail=cache'
 
+        # TODO: REMOVE WHEN IT WORKS
+        print(f'apiurl: {apiurl}\napikey: {apikey}')
+
         try:
             # Do the api call
             response = requests.get(apiurl, headers={ 'Bearer': apikey })
@@ -105,7 +108,7 @@ class Aviation(commands.Cog):
             # Make sure it went well...
             if response.status_code != 200:
                 # TODO: REMOVE WHEN IT WORKS
-                print('Status code wasnt 200.')
+                print(response.text)
                 return None
 
             print(response.json())
@@ -192,10 +195,10 @@ class Aviation(commands.Cog):
         airport_city = station_obj['city']
         airport_state = station_obj['state']
         airport_country = station_obj['country']
-        airport_elevation = station_obj['elevation']
-        airport_latitude = station_obj['lat']
-        airport_longitude = station_obj['lon']
-        airport_timezone = station_obj['tz']
+        # airport_elevation = station_obj['elevation']
+        # airport_latitude = station_obj['lat']
+        # airport_longitude = station_obj['lon']
+        # airport_timezone = station_obj['tz']
 
         # End performance timer for lookup
         elapsed_time_in_ms_for_lookup = '{0:.2f}'.format(((time() - start_time) * 1000))
@@ -222,8 +225,8 @@ class Aviation(commands.Cog):
         # metar_wx_raw_str = apiResponse['raw']
         # metar_station = apiResponse['station'] # Just the ICAO code we have already
         metar_time = apiResponse['time'] # repr, dt (datetime)
-        metar_remarks = apiResponse['remarks']
-        metar_remarks_info = apiResponse['remarks_info'] # dewpoint_decimal [repr, value, spoken], temperature_decimal [repr, value, spoken]
+        # metar_remarks = apiResponse['remarks']
+        # metar_remarks_info = apiResponse['remarks_info'] # dewpoint_decimal [repr, value, spoken], temperature_decimal [repr, value, spoken]
         metar_dewpoint = apiResponse['dewpoint'] # repr, value, spoken
         # metar_runway_visibility = apiResponse['runway_visibility']
         metar_temperature = apiResponse['temperature'] # repr, value, spoken
@@ -240,6 +243,12 @@ class Aviation(commands.Cog):
                 title=f'__**METAR for {airport_icao_code.upper()}**__',
                 description=f'**{metar_sanatized_str}**',
                 color=0x8b0eeb,
+            )
+
+            embed.add_field(
+                name='__**Airport Information**__',
+                value=f'{airport_name} - {airport_city},{airport_state},{airport_country}',
+                inline=False
             )
 
             embed.add_field(
@@ -280,7 +289,7 @@ class Aviation(commands.Cog):
 
             embed.add_field(
                 name='__**Sky Conditions**__:',
-                value=f"",
+                value=f"{metar_clouds[0]['']}",
                 inline=True
             )
 
@@ -288,6 +297,12 @@ class Aviation(commands.Cog):
                 name='__**Flight Category**__:',
                 value=metar_flight_rules,
                 inline=True
+            )
+
+            embed.add_field(
+                name='__**Meta Information**__:',
+                value=f"Time at station: {metar_meta['timestamp']}\nStation last updated: {metar_meta['stations_updated']}\nLast cached event: {metar_meta['cache-timestamp']}",
+                inline=False
             )
 
             # Set UTC date on timestamp so discord can parse it
