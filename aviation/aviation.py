@@ -261,7 +261,7 @@ class Aviation(commands.Cog):
 
             # Same as above
             ts = metar_meta['timestamp'].replace(':', '')
-            body += f"**Time at station**: {ts[: ts.find('T')]} {t[t.find('T') + 1 : t.find('Z') - 2]}Z\n"
+            body += f"**Time at station**: {ts[: ts.find('T')]} {ts[ts.find('T') + 1 : ts.find('Z') - 2]}Z\n"
             body += f"**Station last updated**: {metar_meta['stations_updated']}\n"
 
             # Construct embed
