@@ -236,17 +236,14 @@ class Aviation(commands.Cog):
         except Exception as e:
             print(e)
 
-
         # End performance timer for total time
         elapsed_time_in_ms_for_lookup = '{0:.2f}'.format(((time() - start_time) * 1000))
-
         
         try:
             # Construct embed
             embed = discord.Embed()
             embed.title = f'__**METAR for {airport_icao_code.upper()}**__'
             embed.description = f'**{metar_sanatized_str}**'
-            embed.colour = 0xFFBBAA
 
             embed.add_field(
                 name='__**Airport Information**__',
@@ -312,9 +309,7 @@ class Aviation(commands.Cog):
             embed.timestamp(datetime.utcnow())
 
             # Send embed
-            return await ctx.send(
-                embed=embed
-            )
+            return await ctx.channel.send(embed=embed)
 
         except Exception as e:
             print(e)
