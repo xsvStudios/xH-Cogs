@@ -24,11 +24,10 @@ class Aviation(commands.Cog):
         print(f'airportLookup({airport_code}, {airport_code_type})')
         dir_path = os.path.dirname(os.path.realpath(__file__))
         print(dir_path)
-        print(os.getcwd())
 
         try:
             # Open local JSON file
-            with open('./airports.json', 'r', encoding='utf-8') as f:
+            with open(os.path.join(os.path.dirname(os.path.realpath(__file__)), 'airports.json') , 'r', encoding='utf-8') as f:
                 airport_obj = json.load(f)
             
             # Search the json list for a match
