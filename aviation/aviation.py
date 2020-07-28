@@ -242,9 +242,9 @@ class Aviation(commands.Cog):
         try:
             # Construct embed
             embed = discord.Embed(
-                title=f'__**METAR for {airport_icao_code.upper()}**__'
-                description=f'**{metar_sanatized_str}**'
-                color=0xd90be0
+                title=f'__**METAR for {airport_icao_code.upper()}**__',
+                description=f'**{metar_sanatized_str}**',
+                color=0xd90be0,
             )
 
             embed.add_field(
