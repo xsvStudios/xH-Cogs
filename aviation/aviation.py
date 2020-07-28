@@ -244,7 +244,7 @@ class Aviation(commands.Cog):
                 body += f"**Station (ICAO/IATA)**: {airport_icao_code}/{airport_iata_code}\n"
 
             t = metar_time['dt']
-            body += f"**Observed at**: {t[: t.find('T')]} {t[t.find('T') + 1 : t.find('Z') - 1]}\n"
+            body += f"**Observed at**: {t[: t.find('T')]} {t[t.find('T') + 1 : t.find('T') + 2]}{t[t.find('T') + 2 : t.find('T') + 4]}{t[t.find('T') + 4 : t.find('T') + 6]}Z\n"
             body += f"**Temperature**: {metar_temperature['value']}°C ({(metar_temperature['value'] * (9 / 5)) + 32}°F)\n"
             body += f"**Dewpoint**: {metar_dewpoint['value']}°C ({(metar_dewpoint['value'] * (9 / 5)) + 32}°F)\n"
             body += f"**Winds**: {metar_wind_dir['value']}° at {metar_wind_speed['value']} knots\n"
