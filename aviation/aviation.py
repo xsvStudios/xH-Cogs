@@ -21,6 +21,14 @@ class Aviation(commands.Cog):
         }
         self.config.register_guild(**default_guild)
 
+    def pickRecentUNIXTimestamp(self):
+        try:
+            response = requests.get('https://api.rainviewer.com/public/maps.json')
+            blah = response.json()
+            return blah[len(blah) - 1]
+        except:
+            return None
+
     @commands.command()
     @checks.is_owner()
     async def setapikey(self, ctx: commands.Context, key: str) -> None:
@@ -201,7 +209,6 @@ class Aviation(commands.Cog):
                 Perform API call to actually get metar weather information.
             """
             apiResponse = self.getMetarInfo(airport_icao_code.upper(), apikey)
-            print(f'apiresponse: {apiResponse}')
             if apiResponse == None:
                 return await ctx.send('It seems like the api call has failed to get the METAR information. Please try again later.')
 
@@ -291,11 +298,11 @@ class Aviation(commands.Cog):
             )
 
             # Experimental stuff
-            dt = datetime.datetime.now()
-            unix_ts = str(dt.replace(tzinfo=datetime.timezone.utc).timestamp())
-            embed.set_image(
-                url=f"https://tilecache.rainviewer.com/v2/radar/{unix_ts[:unix_ts.find('.')]}/512/2/{airport_latitude}/{airport_longitude}/1/0_0.png"
-            )
+            unixTime = self.pickRecentUNIXTimestamp()
+            if unixTime != None:
+                embed.set_image(
+                    url=f"https://tilecache.rainviewer.com/v2/radar/{unixTime]}/512/2/{airport_latitude}/{airport_longitude}/1/0_0.png"
+                )
 
             # Send embed
             await ctx.channel.send(embed=embed)
