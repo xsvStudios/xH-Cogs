@@ -102,7 +102,6 @@ class Aviation(commands.Cog):
 
             # Lookup ICAO code and return object if found
             icao_lookup = self.airportLookup(station_id, 'ICAO')
-            print(icao_lookup)
             if icao_lookup == None:
                 return await ctx.send(f'Error: The airport ICAO code with input ID \'{station_id}\' was not found!')
 
@@ -113,7 +112,6 @@ class Aviation(commands.Cog):
 
             # Lookup IATA code and return object if found
             iata_lookup = self.airportLookup(station_id, 'IATA')
-            print(iata_lookup)
             if iata_lookup == None:
                 return await ctx.send(f'Error: The airport IATA code with input ID \'{station_id}\' was not found!')
 
