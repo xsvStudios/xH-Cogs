@@ -22,12 +22,13 @@ class Aviation(commands.Cog):
 
     @commands.command()
     @checks.is_owner()
-    async def setAviationApiKey(self, ctx: commands.Context, key: str) -> None:
+    async def setapikey(self, ctx: commands.Context, key: str) -> None:
         """
             Sets token to be used with avwx.rest
             You can get it from https://avwx.rest/
             This is to get data from METAR and other types of data.
         """
+        
 
         # TODO: Make this DM only for extra security
 
