@@ -158,7 +158,8 @@ class Aviation(commands.Cog):
         if station_obj is None:
             return await ctx.send('An error occured looking up your airport code. Please try again or try a different code.')
 
-        print(f'Api Key: {self.config.guild(ctx.guild).aviationApiKey()}')
+        apikey = await self.config.guild(ctx.guild).aviationApiKey()
+        print(f'Api Key: {apikey}')
 
         # temp
         return await ctx.send(station_obj)
