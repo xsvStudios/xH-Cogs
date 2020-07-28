@@ -277,7 +277,7 @@ class Aviation(commands.Cog):
             )
 
             # Set UTC date on timestamp so discord can parse it
-            embed.timestamp(datetime.utcnow())
+            # embed.timestamp(datetime.utcnow())
 
             # Send embed
             await ctx.channel.send(embed=embed)
