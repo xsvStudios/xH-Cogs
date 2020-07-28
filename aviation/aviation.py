@@ -310,9 +310,7 @@ class Aviation(commands.Cog):
 
             # Send embed
             return await ctx.send(
-                f'Time taken (lookup translation): **{elapsed_time_in_ms_for_lookup}**\n',
-                f'Time taken (lookup translation): **{elapsed_time_in_ms_total}**',
-                embed=embed,
+                embed=embed
             )
 
         except:
