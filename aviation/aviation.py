@@ -301,7 +301,7 @@ class Aviation(commands.Cog):
             unixTime = self.pickRecentUNIXTimestamp()
             if unixTime != None:
                 embed.set_image(
-                    url=f"https://tilecache.rainviewer.com/v2/radar/{unixTime]}/512/2/{airport_latitude}/{airport_longitude}/1/0_0.png"
+                    url=f"https://tilecache.rainviewer.com/v2/radar/{unixTime}/512/2/{airport_latitude}/{airport_longitude}/1/0_0.png"
                 )
 
             # Send embed
