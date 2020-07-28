@@ -1,9 +1,11 @@
 import discord
-from redbot.core import commands
+from redbot.core import commands, checks, Config
 
 from datetime import datetime
 import json
 import os
+
+import timeit
 
 class Aviation(commands.Cog):
     """
@@ -12,6 +14,37 @@ class Aviation(commands.Cog):
 
     def __init__(self, bot):
         self.bot = bot
+        self.config = Config.get_conf(self, 127481152069)
+        default_guild = {
+            'aviationApiKey': None
+        }
+        self.config.register_guild(**default_guild)
+
+    @commands.command()
+    @checks.is_owner()
+    async def setAviationApiKey(self, ctx: commands.Context, key: str) -> None:
+        """
+            Sets token to be used with avwx.rest
+            You can get it from https://avwx.rest/
+            This is to get data from METAR and other types of data.
+        """
+
+        # TODO: Make this DM only for extra security
+
+        # Check key length
+        if len(key) != 43:
+            return await ctx.send('Your api key is not the correct length. Please try again with a correct key.')
+
+        # Set the api key
+        await self.config.aviationApiKey.set(key)
+        await ctx.send('Credentials set.')
+
+        # Delete the message sent by the user if we can so we don't have the api key just sitting there
+        if ctx.channel.permissions_for(ctx.me).manage_messages:
+            return await ctx.message.delete()
+        else:
+            return await ctx.send('I\'m not able to delete that message, please do so to keep your key safe.')
+
 
     def airportLookup(self, airport_code: str, airport_code_type: str):
         """
