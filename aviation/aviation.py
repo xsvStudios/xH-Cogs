@@ -246,6 +246,7 @@ class Aviation(commands.Cog):
             embed = discord.Embed()
             embed.title = f'__**METAR for {airport_icao_code.upper()}**__'
             embed.description = f'**{metar_sanatized_str}**'
+            embed.colour = 0xFFBBAA
 
             embed.add_field(
                 name='__**Airport Information**__',
@@ -289,11 +290,11 @@ class Aviation(commands.Cog):
                 inline=True
             )
 
-            embed.add_field(
-                name='__**Sky Conditions**__:',
-                value=f"{metar_clouds[0]['']}",
-                inline=True
-            )
+            # embed.add_field(
+            #     name='__**Sky Conditions**__:',
+            #     value=f"{metar_clouds[0]['']}",
+            #     inline=True
+            # )
 
             embed.add_field(
                 name='__**Flight Category**__:',
