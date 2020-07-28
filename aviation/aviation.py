@@ -244,7 +244,7 @@ class Aviation(commands.Cog):
             body = f'**{metar_sanatized_str}**\n'
             body += f'__**Airport Information**__: {airport_name} - {airport_city}, {airport_state}, {airport_country}\n'
             body += f'**Station (ICAO/IATA)**: {airport_icao_code}/{airport_iata_code}\n'
-            body += f"**Observed at**: {datetime.strptime(metar_time['dt'], '%Y-%m-%d %H:%M:%S')}\n"
+            body += f"**Observed at**: {datetime.strptime(metar_time['dt'], '%Y-%m-%dT%H:%M:%S')}\n"
             body += f"**Dewpoint**: {metar_dewpoint['value']}°C ({(metar_dewpoint['value'] * (9 / 5)) + 32}°F)\n"
             body += f"**Temperature**: {metar_temperature['value']}°C ({(metar_temperature['value'] * (9 / 5)) + 32}°F)\n"
             body += f"**Winds**: {metar_wind_speed['value']} knots at {metar_wind_dir['value']}°\n"
