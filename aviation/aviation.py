@@ -103,7 +103,7 @@ class Aviation(commands.Cog):
 
         try:
             # Do the api call
-            response = requests.get(apiurl, headers={ 'Bearer': apikey })
+            response = requests.get(apiurl, headers={ 'Authorization': f'Bearer {apikey}' })
 
             # Make sure it went well...
             if response.status_code != 200:
