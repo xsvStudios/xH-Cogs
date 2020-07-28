@@ -208,6 +208,7 @@ class Aviation(commands.Cog):
                 Perform API call to actually get metar weather information.
             """
             apiResponse = self.getMetarInfo(airport_icao_code.upper(), apikey)
+            print(f'apiresponse: {apiResponse}')
             if apiResponse == None:
                 return await ctx.send('It seems like the api call has failed to get the METAR information. Please try again later.')
             
