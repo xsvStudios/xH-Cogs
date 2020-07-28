@@ -188,49 +188,52 @@ class Aviation(commands.Cog):
         if station_obj is None:
             return await ctx.send('An error occured looking up your airport code. Please try again or try a different code.')
 
-        # Parse out the response we got and get out the info into variables we can use
-        airport_icao_code = station_obj['icao']
-        airport_iata_code = station_obj['iata']
-        airport_name = station_obj['name']
-        airport_city = station_obj['city']
-        airport_state = station_obj['state']
-        airport_country = station_obj['country']
-        # airport_elevation = station_obj['elevation']
-        # airport_latitude = station_obj['lat']
-        # airport_longitude = station_obj['lon']
-        # airport_timezone = station_obj['tz']
+        try:
+            # Parse out the response we got and get out the info into variables we can use
+            airport_icao_code = station_obj['icao']
+            airport_iata_code = station_obj['iata']
+            airport_name = station_obj['name']
+            airport_city = station_obj['city']
+            airport_state = station_obj['state']
+            airport_country = station_obj['country']
+            # airport_elevation = station_obj['elevation']
+            # airport_latitude = station_obj['lat']
+            # airport_longitude = station_obj['lon']
+            # airport_timezone = station_obj['tz']
 
-        # End performance timer for lookup
-        elapsed_time_in_ms_for_lookup = '{0:.2f}'.format(((time() - start_time) * 1000))
+            # End performance timer for lookup
+            elapsed_time_in_ms_for_lookup = '{0:.2f}'.format(((time() - start_time) * 1000))
 
-        """
-            Perform API call to actually get metar weather information.
-        """
-        apiResponse = self.getMetarInfo(airport_icao_code.upper(), apikey)
-        if apiResponse == None:
-            return await ctx.send('It seems like the api call has failed to get the METAR information. Please try again later.')
-        
-        metar_meta = apiResponse['meta'] # timestamp, stations_updated, and cache-timestamp (datetime)
-        metar_altimeter = apiResponse['altimeter'] # repr, value, spoken
-        metar_clouds = apiResponse['clouds'] # Array of objects, each containing: repr, type, altitude (* 100 for alt), modifier, direction
-        # metar_other = apiResponse['other']
-        metar_flight_rules = apiResponse['flight_rules']
-        metar_sanatized_str = apiResponse['sanitized']
-        metar_visibility = apiResponse['visibility'] # repr, value, spoken
-        metar_wind_dir = apiResponse['wind_direction'] # repr, value, spoken
-        # metar_wind_variable_direction = apiResponse['wind_variable_direction']
-        # metar_wind_gust = apiResponse['wind_gust']
-        metar_wind_speed = apiResponse['wind_speed'] # repr, value, spoken
-        # metar_wx_codes = apiResponse['wx_codes']
-        # metar_wx_raw_str = apiResponse['raw']
-        # metar_station = apiResponse['station'] # Just the ICAO code we have already
-        metar_time = apiResponse['time'] # repr, dt (datetime)
-        # metar_remarks = apiResponse['remarks']
-        # metar_remarks_info = apiResponse['remarks_info'] # dewpoint_decimal [repr, value, spoken], temperature_decimal [repr, value, spoken]
-        metar_dewpoint = apiResponse['dewpoint'] # repr, value, spoken
-        # metar_runway_visibility = apiResponse['runway_visibility']
-        metar_temperature = apiResponse['temperature'] # repr, value, spoken
-        # metar_units = apiResponse['units'] # altimeter, altitude, temperature, visibility, wind_speed
+            """
+                Perform API call to actually get metar weather information.
+            """
+            apiResponse = self.getMetarInfo(airport_icao_code.upper(), apikey)
+            if apiResponse == None:
+                return await ctx.send('It seems like the api call has failed to get the METAR information. Please try again later.')
+            
+            metar_meta = apiResponse['meta'] # timestamp, stations_updated, and cache-timestamp (datetime)
+            metar_altimeter = apiResponse['altimeter'] # repr, value, spoken
+            metar_clouds = apiResponse['clouds'] # Array of objects, each containing: repr, type, altitude (* 100 for alt), modifier, direction
+            # metar_other = apiResponse['other']
+            metar_flight_rules = apiResponse['flight_rules']
+            metar_sanatized_str = apiResponse['sanitized']
+            metar_visibility = apiResponse['visibility'] # repr, value, spoken
+            metar_wind_dir = apiResponse['wind_direction'] # repr, value, spoken
+            # metar_wind_variable_direction = apiResponse['wind_variable_direction']
+            # metar_wind_gust = apiResponse['wind_gust']
+            metar_wind_speed = apiResponse['wind_speed'] # repr, value, spoken
+            # metar_wx_codes = apiResponse['wx_codes']
+            # metar_wx_raw_str = apiResponse['raw']
+            # metar_station = apiResponse['station'] # Just the ICAO code we have already
+            metar_time = apiResponse['time'] # repr, dt (datetime)
+            # metar_remarks = apiResponse['remarks']
+            # metar_remarks_info = apiResponse['remarks_info'] # dewpoint_decimal [repr, value, spoken], temperature_decimal [repr, value, spoken]
+            metar_dewpoint = apiResponse['dewpoint'] # repr, value, spoken
+            # metar_runway_visibility = apiResponse['runway_visibility']
+            metar_temperature = apiResponse['temperature'] # repr, value, spoken
+            # metar_units = apiResponse['units'] # altimeter, altitude, temperature, visibility, wind_speed
+        except Exception as e:
+            print(e)
 
 
         # End performance timer for total time
