@@ -202,7 +202,7 @@ class Aviation(commands.Cog):
             # airport_timezone = station_obj['tz']
 
             # End performance timer for lookup
-            elapsed_time_in_ms_for_lookup = '{0:.2f}'.format(((time() - start_time) * 1000))
+           #  elapsed_time_in_ms_for_lookup = '{0:.2f}'.format(((time() - start_time) * 1000))
 
             """
                 Perform API call to actually get metar weather information.
@@ -234,10 +234,10 @@ class Aviation(commands.Cog):
             metar_temperature = apiResponse['temperature'] # repr, value, spoken
             # metar_units = apiResponse['units'] # altimeter, altitude, temperature, visibility, wind_speed
         except Exception as e:
-            print(e)
+            print(f'err in setting vars: {e}')
 
         # End performance timer for total time
-        elapsed_time_in_ms_for_lookup = '{0:.2f}'.format(((time() - start_time) * 1000))
+        # elapsed_time_in_ms_for_lookup = '{0:.2f}'.format(((time() - start_time) * 1000))
         
         try:
             # Construct embed
@@ -306,10 +306,10 @@ class Aviation(commands.Cog):
             )
 
             # Set UTC date on timestamp so discord can parse it
-            embed.timestamp(datetime.utcnow())
+            # embed.timestamp(datetime.utcnow())
 
             # Send embed
-            return await ctx.channel.send(embed=embed)
+            await ctx.channel.send(embed=embed)
 
         except Exception as e:
-            print(e)
+            print(f'Error in main embed: {e}')
