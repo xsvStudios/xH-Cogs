@@ -29,7 +29,7 @@ class Aviation(commands.Cog):
             You can get it from https://avwx.rest/
             This is to get data from METAR and other types of data.
         """
-        
+
 
         # TODO: Make this DM only for extra security
 
@@ -59,7 +59,7 @@ class Aviation(commands.Cog):
             # Open local JSON file
             with open(os.path.join(os.path.dirname(os.path.realpath(__file__)), 'airports.json') , 'r', encoding='utf-8') as f:
                 airport_obj = json.load(f)
-            
+
             # Search the json list for a match
             # (doing it the long way because that's how the dataset is, and because of the complexity of 2 possible lookups per query)
             if airport_obj != None:
@@ -71,7 +71,7 @@ class Aviation(commands.Cog):
                                 if airport_obj[x]['icao'].upper() == airport_code.upper():
                                     # Match found, return x
                                     return airport_obj[x]
-                        
+
                         elif airport_code_type == 'IATA':
                             # IATA -> 3 letters
                             if 'iata' in airport_obj[x]:
@@ -94,12 +94,9 @@ class Aviation(commands.Cog):
 
             TODO: Implement proper api error handling here
         """
-        
+
         # Define api call url
         apiurl = f'https://avwx.rest/api/metar/{icao_code}?options=&airport=true&reporting=true&format=json&onfail=cache'
-
-        # TODO: REMOVE WHEN IT WORKS
-        print(f'apiurl: {apiurl}\napikey: {apikey}')
 
         try:
             # Do the api call
@@ -108,15 +105,11 @@ class Aviation(commands.Cog):
             # Make sure it went well...
             if response.status_code != 200:
                 # TODO: REMOVE WHEN IT WORKS
-                print(response.text)
                 return None
 
-            print(response.json())
             return response.json()
 
         except Exception as e:
-            # TODO: REMOVE WHEN IT WORKS
-            print(e)
             return None
 
     @commands.command()
@@ -127,7 +120,7 @@ class Aviation(commands.Cog):
             General list of airports with IATA and ICAO codes: https://en.wikipedia.org/wiki/Lists_of_airports
             **ICAO** Codes (4 letters): https://en.wikipedia.org/wiki/ICAO_airport_code
             **IATA** Codes (3 letters): https://en.wikipedia.org/wiki/IATA_airport_code
-            
+
             Will return the data in an embed to the user with useful weather information of the airport.
 
             **Example**:
@@ -197,8 +190,8 @@ class Aviation(commands.Cog):
             airport_state = station_obj['state']
             airport_country = station_obj['country']
             # airport_elevation = station_obj['elevation']
-            # airport_latitude = station_obj['lat']
-            # airport_longitude = station_obj['lon']
+            airport_latitude = station_obj['lat']
+            airport_longitude = station_obj['lon']
             # airport_timezone = station_obj['tz']
 
             # End performance timer for lookup
@@ -211,7 +204,7 @@ class Aviation(commands.Cog):
             print(f'apiresponse: {apiResponse}')
             if apiResponse == None:
                 return await ctx.send('It seems like the api call has failed to get the METAR information. Please try again later.')
-            
+
             metar_meta = apiResponse['meta'] # timestamp, stations_updated, and cache-timestamp (datetime)
             metar_altimeter = apiResponse['altimeter'] # repr, value, spoken
             metar_clouds = apiResponse['clouds'] # Array of objects, each containing: repr, type, altitude (* 100 for alt), modifier, direction
@@ -238,23 +231,27 @@ class Aviation(commands.Cog):
 
         # End performance timer for total time
         # elapsed_time_in_ms_for_lookup = '{0:.2f}'.format(((time() - start_time) * 1000))
-        
+
         try:
             # Construct the body for the embed so it looks all nice
-            body = f"**{metar_sanatized_str}**\n\n"
-            body += f"__**Airport Information**__: {airport_name} - {airport_city}, {airport_state}, {airport_country}\n"
-            body += f"**Station (ICAO/IATA)**: {airport_icao_code}/{airport_iata_code}\n"
-            body += f"**Observed at**: {metar_time['dt']}\n"
-            body += f"**Dewpoint**: {metar_dewpoint['value']}°C ({(metar_dewpoint['value'] * (9 / 5)) + 32}°F)\n"
-            body += f"**Temperature**: {metar_temperature['value']}°C ({(metar_temperature['value'] * (9 / 5)) + 32}°F)\n"
-            body += f"**Winds**: {metar_wind_speed['value']} knots at {metar_wind_dir['value']}°\n"
-            body += f"**Visibility**: {metar_visibility['value'] / 1.15078}nm ({metar_visibility['value']}sm)\n"
-            converted = '{0:.2f}'.format(metar_altimeter['value'] * 33.86)
-            body += f"**Pressure**: {converted}hPa ({metar_altimeter['value']} inHg)\n"
-            body += f"\n**Time at station**: {metar_meta['timestamp']}\n"
-            body += f"**Station last updated**: {metar_meta['stations_updated']}\n"
+            body =  f"**{metar_sanatized_str}**\n\n"
+            body += f"**Airport Information**: {airport_name} - {airport_city}, {airport_state}, {airport_country} [lon/lat][{airport_longitude}/{airport_latitude}]\n\n"
 
-            print(f'Body length: {len(body)}')
+            # Construct if the station has an IATA code or not
+            if airport_iata_code == '' or airport_iata_code == None:
+                body += f"**Station (ICAO)**: {airport_icao_code}\n"
+            else:
+                body += f"**Station (ICAO/IATA)**: {airport_icao_code}/{airport_iata_code}\n"
+
+            t = metar_time['dt']
+            body += f"**Observed at**: {t[: t.find('T')]} {t[t.find('T') + 1 : t.find('Z') - 1]}\n"
+            body += f"**Temperature**: {metar_temperature['value']}°C ({(metar_temperature['value'] * (9 / 5)) + 32}°F)\n"
+            body += f"**Dewpoint**: {metar_dewpoint['value']}°C ({(metar_dewpoint['value'] * (9 / 5)) + 32}°F)\n"
+            body += f"**Winds**: {metar_wind_dir['value']}° at {metar_wind_speed['value']} knots\n"
+            body += f"**Visibility**:{metar_visibility['value']}sm\n"
+            body += f"**Pressure**: {'{0:.2f}'.format(metar_altimeter['value'] * 33.86)}hPa ({metar_altimeter['value']} inHg)\n\n"
+            body += f"**Time at station**: {metar_meta['timestamp']}\n"
+            body += f"**Station last updated**: {metar_meta['stations_updated']}\n"
 
             # Construct embed
             embed = discord.Embed(
@@ -266,13 +263,13 @@ class Aviation(commands.Cog):
             if len(metar_clouds) > 0:
                 embed.add_field(
                     name='__**Sky Conditions**__:',
-                    value=f"{metar_clouds[0]}",
+                    value=f"{metar_clouds}",
                     inline=False
                 )
 
             embed.add_field(
                 name='__**Flight Category**__:',
-                value=metar_flight_rules,
+                value=f'**{metar_flight_rules}**',
                 inline=False
             )
 
