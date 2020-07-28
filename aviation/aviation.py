@@ -256,50 +256,50 @@ class Aviation(commands.Cog):
             embed.add_field(
                 name='**Station (ICAO/IATA):',
                 value=f'{airport_icao_code}/{airport_iata_code}',
-                inline=True
+                inline=False
             )
             embed.add_field(
                 name='**Observed at**:',
                 value=metar_time['dt'],
-                inline=True
+                inline=False
             )
             embed.add_field(
                 name='**Dewpoint**:',
                 value=f"{metar_dewpoint['value']}°C ({(metar_dewpoint['value'] * (9 / 5)) + 32}°F)",
-                inline=True
+                inline=False
             )
             embed.add_field(
                 name='**Temperature**:',
                 value=f"{metar_temperature['value']}°C ({(metar_temperature['value'] * (9 / 5)) + 32}°F)",
-                inline=True
+                inline=False
             )
             embed.add_field(
                 name='**Winds**:',
                 value=f"{metar_wind_speed['value']} knots at {metar_wind_dir['value']}°",
-                inline=True
+                inline=False
             )
             embed.add_field(
                 name='**Visibility**:',
                 value=f"{metar_visibility['value'] / 1.15078}nm ({metar_visibility['value']}sm)",
-                inline=True
+                inline=False
             )
             embed.add_field(
                 name='**Pressure**:',
                 value=f"{'{0:.2f}'.format(metar_altimeter['value'] * 33.86)}hPa ({metar_altimeter['value']} inHg)",
-                inline=True
+                inline=False
             )
 
             if len(metar_clouds) > 0:
                 embed.add_field(
                     name='__**Sky Conditions**__:',
                     value=f"{metar_clouds[0]['']}",
-                    inline=True
+                    inline=False
                 )
 
             embed.add_field(
                 name='__**Flight Category**__:',
                 value=metar_flight_rules,
-                inline=True
+                inline=False
             )
 
             embed.add_field(
