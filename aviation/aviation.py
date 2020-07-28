@@ -240,53 +240,24 @@ class Aviation(commands.Cog):
         # elapsed_time_in_ms_for_lookup = '{0:.2f}'.format(((time() - start_time) * 1000))
         
         try:
+            # Construct the body for the embed so it looks all nice
+            body = f'**{metar_sanatized_str}**\n'
+            body += f'__**Airport Information**__: {airport_name} - {airport_city}, {airport_state}, {airport_country}\n'
+            body += f'**Station (ICAO/IATA)**: {airport_icao_code}/{airport_iata_code}\n'
+            body += f"**Observed at**: {datetime.strptime(metar_time['dt'], '%Y-%m-%d %H:%M:%S')}\n"
+            body += f"**Dewpoint**: {metar_dewpoint['value']}°C ({(metar_dewpoint['value'] * (9 / 5)) + 32}°F)\n"
+            body += f"**Temperature**: {metar_temperature['value']}°C ({(metar_temperature['value'] * (9 / 5)) + 32}°F)\n"
+            body += f"**Winds**: {metar_wind_speed['value']} knots at {metar_wind_dir['value']}°\n"
+            body += f"**Visibility**: {metar_visibility['value'] / 1.15078}nm ({metar_visibility['value']}sm)\n"
+            body += f"**Pressure**: {'{0:.2f}'.format(metar_altimeter['value'] * 33.86)}hPa ({metar_altimeter['value']} inHg)\n"
+            body += f"\n\nTime at station: {metar_meta['timestamp']}\n"
+            body += f"Station last updated: {metar_meta['stations_updated']}\n"
+
             # Construct embed
             embed = discord.Embed(
                 title=f'__**METAR for {airport_icao_code.upper()}**__',
-                description=f'**{metar_sanatized_str}**',
+                description=body,
                 color=0xd90be0,
-            )
-
-            embed.add_field(
-                name='__**Airport Information**__',
-                value=f'{airport_name} - {airport_city},{airport_state},{airport_country}',
-                inline=False
-            )
-
-            embed.add_field(
-                name='**Station (ICAO/IATA):',
-                value=f'{airport_icao_code}/{airport_iata_code}',
-                inline=False
-            )
-            embed.add_field(
-                name='**Observed at**:',
-                value=metar_time['dt'],
-                inline=False
-            )
-            embed.add_field(
-                name='**Dewpoint**:',
-                value=f"{metar_dewpoint['value']}°C ({(metar_dewpoint['value'] * (9 / 5)) + 32}°F)",
-                inline=False
-            )
-            embed.add_field(
-                name='**Temperature**:',
-                value=f"{metar_temperature['value']}°C ({(metar_temperature['value'] * (9 / 5)) + 32}°F)",
-                inline=False
-            )
-            embed.add_field(
-                name='**Winds**:',
-                value=f"{metar_wind_speed['value']} knots at {metar_wind_dir['value']}°",
-                inline=False
-            )
-            embed.add_field(
-                name='**Visibility**:',
-                value=f"{metar_visibility['value'] / 1.15078}nm ({metar_visibility['value']}sm)",
-                inline=False
-            )
-            embed.add_field(
-                name='**Pressure**:',
-                value=f"{'{0:.2f}'.format(metar_altimeter['value'] * 33.86)}hPa ({metar_altimeter['value']} inHg)",
-                inline=False
             )
 
             if len(metar_clouds) > 0:
@@ -302,14 +273,8 @@ class Aviation(commands.Cog):
                 inline=False
             )
 
-            embed.add_field(
-                name='__**Meta Information**__:',
-                value=f"Time at station: {metar_meta['timestamp']}\nStation last updated: {metar_meta['stations_updated']}",
-                inline=False
-            )
-
             # Set UTC date on timestamp so discord can parse it
-            # embed.timestamp(datetime.utcnow())
+            embed.timestamp(datetime.utcnow())
 
             # Send embed
             await ctx.channel.send(embed=embed)
