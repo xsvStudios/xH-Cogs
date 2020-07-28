@@ -36,7 +36,7 @@ class Aviation(commands.Cog):
             return await ctx.send('Your api key is not the correct length. Please try again with a correct key.')
 
         # Set the api key
-        await self.config.aviationApiKey.set(key)
+        await self.config.guild(ctx.guild).aviationApiKey.set(key)
         await ctx.send('Credentials set.')
 
         # Delete the message sent by the user if we can so we don't have the api key just sitting there
@@ -157,6 +157,8 @@ class Aviation(commands.Cog):
         # Exit if something bad happened. (over-engineering, but whatever)
         if station_obj is None:
             return await ctx.send('An error occured looking up your airport code. Please try again or try a different code.')
+
+        print(f'Api Key: {self.config.guild(ctx.guild).aviationApiKey()}')
 
         # temp
         return await ctx.send(station_obj)
