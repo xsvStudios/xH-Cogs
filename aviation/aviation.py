@@ -245,7 +245,7 @@ class Aviation(commands.Cog):
 
             t = metar_time['dt']
             t = t.replace(':', '')
-            body += f"**Observed at**: {t[: t.find('T')]} {t[t.find('T') + 1 : t.find('Z') - 1]}Z\n"
+            body += f"**Observed at**: {t[: t.find('T')]} {t[t.find('T') + 1 : t.find('Z') - 2]}Z\n"
             body += f"**Temperature**: {metar_temperature['value']}°C ({(metar_temperature['value'] * (9 / 5)) + 32}°F)\n"
             body += f"**Dewpoint**: {metar_dewpoint['value']}°C ({(metar_dewpoint['value'] * (9 / 5)) + 32}°F)\n"
             body += f"**Winds**: {metar_wind_dir['value']}° at {metar_wind_speed['value']} knots\n"
@@ -254,7 +254,7 @@ class Aviation(commands.Cog):
 
             ts = metar_meta['timestamp']
             ts = ts.replace(':', '')
-            body += f"**Time at station**: {ts[: ts.find('T')]} {t[t.find('T') + 1 : t.find('Z') - 1]}Z\n"
+            body += f"**Time at station**: {ts[: ts.find('T')]} {t[t.find('T') + 1 : t.find('Z') - 2]}Z\n"
             body += f"**Station last updated**: {metar_meta['stations_updated']}\n"
 
             # Construct embed
