@@ -1,7 +1,7 @@
 import discord
 from redbot.core import commands, checks, Config
 
-from datetime import datetime
+from datetime
 from time import time
 import json
 import os
@@ -235,7 +235,7 @@ class Aviation(commands.Cog):
         try:
             # Construct the body for the embed so it looks all nice
             body =  f"**{metar_sanatized_str}**\n\n"
-            body += f"**Airport Information**: {airport_name} - {airport_city}, {airport_state}, {airport_country} [lon/lat][{airport_longitude}/{airport_latitude}]\n\n"
+            body += f"**Airport Information**: {airport_name} - {airport_city}, {airport_state}, {airport_country} [**{airport_longitude}**/**{airport_latitude}**]\n\n"
 
             # Construct if the station has an IATA code or not
             if airport_iata_code == '' or airport_iata_code == None:
@@ -243,15 +243,17 @@ class Aviation(commands.Cog):
             else:
                 body += f"**Station (ICAO/IATA)**: {airport_icao_code}/{airport_iata_code}\n"
 
+            # Do some string magic to make the datetime what these guys want...
             t = metar_time['dt']
             t = t.replace(':', '')
             body += f"**Observed at**: {t[: t.find('T')]} {t[t.find('T') + 1 : t.find('Z') - 2]}Z\n"
             body += f"**Temperature**: {metar_temperature['value']}°C ({(metar_temperature['value'] * (9 / 5)) + 32}°F)\n"
             body += f"**Dewpoint**: {metar_dewpoint['value']}°C ({(metar_dewpoint['value'] * (9 / 5)) + 32}°F)\n"
             body += f"**Winds**: {metar_wind_dir['value']}° at {metar_wind_speed['value']} knots\n"
-            body += f"**Visibility**:{metar_visibility['value']}sm\n"
+            body += f"**Visibility**: {metar_visibility['value']}sm\n"
             body += f"**Pressure**: {'{0:.2f}'.format(metar_altimeter['value'] * 33.86)}hPa ({metar_altimeter['value']} inHg)\n\n"
 
+            # Same as above
             ts = metar_meta['timestamp']
             ts = ts.replace(':', '')
             body += f"**Time at station**: {ts[: ts.find('T')]} {t[t.find('T') + 1 : t.find('Z') - 2]}Z\n"
@@ -264,13 +266,15 @@ class Aviation(commands.Cog):
                 color=0xd90be0,
             )
 
-            if len(metar_clouds) > 0:
-                embed.add_field(
-                    name='__**Sky Conditions**__:',
-                    value=f"{metar_clouds}",
-                    inline=False
-                )
+            # TODO: do some clouds data
+            # if len(metar_clouds) > 0:
+            #     embed.add_field(
+            #         name='__**Sky Conditions**__:',
+            #         value=f"{metar_clouds}",
+            #         inline=False
+            #     )
 
+            # VFR, IFR, etc...
             embed.add_field(
                 name='__**Flight Category**__:',
                 value=f'**{metar_flight_rules}**',
@@ -278,10 +282,23 @@ class Aviation(commands.Cog):
             )
 
             # Set UTC date on timestamp so discord can parse it
-            embed.timestamp = datetime.utcnow()
+            embed.timestamp = datetime.datetime.utcnow()
+
+            # Set author stuff
+            embed.set_author(
+                name=ctx.message.author,
+                icon_url=ctx.message.author.avatar_url
+            )
+
+            # Experimental stuff
+            dt = datetime.datetime.now()
+            unix_ts = str(dt.replace(tzinfo=datetime.timezone.utc).timestamp())
+            embed.set_image(
+                url=f'https://tilecache.rainviewer.com/v2/radar/{unix_ts[:unix_ts.find(.)]}/512/2/{airport_latitude}/{airport_longitude}/1/0_0.png'
+            )
 
             # Send embed
             await ctx.channel.send(embed=embed)
 
-        except Exception as e:
-            print(f'Error in main embed: {e}')
+        except:
+            pass
