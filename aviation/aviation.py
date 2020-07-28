@@ -19,6 +19,8 @@ class Aviation(commands.Cog):
             TODO: Make this more efficient by loading it only once in the __init__ of the cog so we don't waste time loading it again.
         """
 
+        print(f'airportLookup({airport_code}, {airport_code_type})')
+
         try:
             # Open local JSON file
             with open('airports.json', 'r', encoding='utf-8') as f:
@@ -44,11 +46,14 @@ class Aviation(commands.Cog):
                                     return airport_obj[x]
 
             # Match wasn't found...
+            print('match not found...')
             return None
-        except:
+        except Exception as e:
+            print(e)
             # Something blew up?
             return None
 
+        print('got to end of scope here')
         return None
 
     def getMetarInfo(self):
