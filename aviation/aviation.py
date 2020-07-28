@@ -84,7 +84,7 @@ class Aviation(commands.Cog):
 
         # Checks to see if the input string is a ICAO or IATA input
         if (not station_id.isalpha()) or (len(station_id) not in [3, 4]):
-            return await ctx.send(f'Your input must be an ICAO or IATA code. Get more info by typing: {ctx.prefix}help {ctx.command}')
+            return await ctx.send(f'Your input must be an ICAO or IATA code. Get more info by typing: **{ctx.prefix}help {ctx.command}**')
 
         # TODO: Do lookup table here and get information on it such as airport name, etc...
 
@@ -103,7 +103,7 @@ class Aviation(commands.Cog):
             # Lookup ICAO code and return object if found
             icao_lookup = self.airportLookup(station_id, 'ICAO')
             if icao_lookup == None:
-                return await ctx.send(f'Error: The airport ICAO code with input ID \'{station_id}\' was not found!')
+                return await ctx.send(f'Error: The airport ICAO code with input ID \'**{station_id}**\' was not found!')
 
             # Lookup was successful
             station_obj = icao_lookup
@@ -113,13 +113,13 @@ class Aviation(commands.Cog):
             # Lookup IATA code and return object if found
             iata_lookup = self.airportLookup(station_id, 'IATA')
             if iata_lookup == None:
-                return await ctx.send(f'Error: The airport IATA code with input ID \'{station_id}\' was not found!')
+                return await ctx.send(f'Error: The airport IATA code with input ID \'**{station_id}**\' was not found!')
 
             # Lookup was successful
             station_obj = iata_lookup
         else:
             # If this gets hit, then it somehow avoided the filters? How???
-            return await ctx.send(f'Your input must be an ICAO or IATA code. Get more info by typing: {ctx.prefix}help {ctx.command}')
+            return await ctx.send(f'Your input must be an ICAO or IATA code. Get more info by typing: **{ctx.prefix}help {ctx.command}**')
 
         # Exit if something bad happened. (over-engineering, but whatever)
         if station_obj is None:
