@@ -241,7 +241,7 @@ class Aviation(commands.Cog):
         
         try:
             # Construct the body for the embed so it looks all nice
-            body = f"**{metar_sanatized_str}**\n"
+            body = f"**{metar_sanatized_str}**\n\n"
             body += f"__**Airport Information**__: {airport_name} - {airport_city}, {airport_state}, {airport_country}\n"
             body += f"**Station (ICAO/IATA)**: {airport_icao_code}/{airport_iata_code}\n"
             body += f"**Observed at**: {metar_time['dt']}\n"
@@ -251,8 +251,8 @@ class Aviation(commands.Cog):
             body += f"**Visibility**: {metar_visibility['value'] / 1.15078}nm ({metar_visibility['value']}sm)\n"
             converted = '{0:.2f}'.format(metar_altimeter['value'] * 33.86)
             body += f"**Pressure**: {converted}hPa ({metar_altimeter['value']} inHg)\n"
-            body += f"\n\nTime at station: {metar_meta['timestamp']}\n"
-            body += f"Station last updated: {metar_meta['stations_updated']}\n"
+            body += f"\n**Time at station**: {metar_meta['timestamp']}\n"
+            body += f"**Station last updated**: {metar_meta['stations_updated']}\n"
 
             print(f'Body length: {len(body)}')
 
