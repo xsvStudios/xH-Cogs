@@ -255,7 +255,7 @@ class Aviation(commands.Cog):
             t = t.replace(':', '')
             body += f"**Observed at**: {t[: t.find('T')]} {t[t.find('T') + 1 : t.find('Z') - 2]}Z\n"
             body += f"**Temperature**: {metar_temperature['value']}°C ({(metar_temperature['value'] * (9 / 5)) + 32}°F)\n"
-            body += f"**Dewpoint**: {metar_dewpoint['value']}°C ({(metar_dewpoint['value'] * (9 / 5)) + 32}°F)\n"
+            body += f"**Dewpoint**: {metar_dewpoint['value']}°C ({'{0:.2f}'.format((metar_dewpoint['value'] * (9 / 5)) + 32)}°F)\n"
             body += f"**Winds**: {metar_wind_dir['value']}° at {metar_wind_speed['value']} knots\n"
             body += f"**Visibility**: {metar_visibility['value']}sm\n"
             body += f"**Pressure**: {'{0:.2f}'.format(metar_altimeter['value'] * 33.86)}hPa ({metar_altimeter['value']} inHg)\n\n"
@@ -298,6 +298,7 @@ class Aviation(commands.Cog):
             )
 
             # Experimental stuff
+            # https://www.rainviewer.com/api.html
             unixTime = self.pickRecentUNIXTimestamp()
             if unixTime != None:
                 embed.set_image(
