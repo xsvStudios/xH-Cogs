@@ -2,10 +2,11 @@ import discord
 from redbot.core import commands, checks, Config
 
 from datetime import datetime
+from time import time
 import json
 import os
+import requests
 
-import timeit
 
 class Aviation(commands.Cog):
     """
@@ -86,13 +87,34 @@ class Aviation(commands.Cog):
 
         return None
 
-    def getMetarInfo(self):
+    def getMetarInfo(self, icao_code: str, apikey: str):
         """
-            TODO: Add description here
-        """
-        # TODO: Add datagrabbing here for the actual metar data. Also include performance metric in returned object.
+            Calls an api that fetches METAR weather info from an input ICAO airport code.
+            Returns back the info for that requested airport if possible.
 
-        return NotImplemented
+            TODO: Implement proper api error handling here
+        """
+        
+        # Define api call url
+        apiurl = f'https://avwx.rest/api/metar/{icao_code}?options=&airport=true&reporting=true&format=json&onfail=cache'
+
+        try:
+            # Do the api call
+            response = requests.get(apiurl, headers={ 'Bearer': apikey })
+
+            # Make sure it went well...
+            if response.status_code != 200:
+                # TODO: REMOVE WHEN IT WORKS
+                print('Status code wasnt 200.')
+                return None
+
+            print(response.json())
+            return response.json()
+
+        except Exception as e:
+            # TODO: REMOVE WHEN IT WORKS
+            print(e)
+            return None
 
     @commands.command()
     async def metar(self, ctx, station_id: str):
@@ -120,13 +142,17 @@ class Aviation(commands.Cog):
         if (not station_id.isalpha()) or (len(station_id) not in [3, 4]):
             return await ctx.send(f'Your input must be an ICAO or IATA code. Get more info by typing: **{ctx.prefix}help {ctx.command}**')
 
-        # TODO: Do lookup table here and get information on it such as airport name, etc...
-
-        # TODO: Get data here and store it in an dictionary and perform datachecks on it
+        # Check if our api key exists/is valid before we do anything...
+        apikey = await self.config.guild(ctx.guild).aviationApiKey()
+        if (apikey == None) or (len(apikey) != 43):
+            return await ctx.send(f'Your api key isn\'t set just yet. Please run **{ctx.prefix}help setapikey** for more information. (only the owner can set this)')
 
         """
-            Get data from respective code type.
+            Check to see if the airport code exists, if it does, get some info and pass it along to the api.
         """
+
+        # Start performance timer
+        start_time = time()
 
         # Define global object to assign in the case types below
         station_obj = None
@@ -159,25 +185,120 @@ class Aviation(commands.Cog):
         if station_obj is None:
             return await ctx.send('An error occured looking up your airport code. Please try again or try a different code.')
 
-        apikey = await self.config.guild(ctx.guild).aviationApiKey()
-        print(f'Api Key: {apikey}')
+        # Parse out the response we got and get out the info into variables we can use
+        airport_icao_code = station_obj['icao']
+        airport_iata_code = station_obj['iata']
+        airport_name = station_obj['name']
+        airport_city = station_obj['city']
+        airport_state = station_obj['state']
+        airport_country = station_obj['country']
+        airport_elevation = station_obj['elevation']
+        airport_latitude = station_obj['lat']
+        airport_longitude = station_obj['lon']
+        airport_timezone = station_obj['tz']
 
-        # temp
-        return await ctx.send(station_obj)
+        # End performance timer for lookup
+        elapsed_time_in_ms_for_lookup = '{0:.2f}'.format(((time() - start_time) * 1000))
 
-        # Construct embed
+        """
+            Perform API call to actually get metar weather information.
+        """
+        apiResponse = self.getMetarInfo(airport_icao_code.upper(), apikey)
+        if apiResponse == None:
+            return await ctx.send('It seems like the api call has failed to get the METAR information. Please try again later.')
+        
+        metar_meta = apiResponse['meta'] # timestamp, stations_updated, and cache-timestamp (datetime)
+        metar_altimeter = apiResponse['altimeter'] # repr, value, spoken
+        metar_clouds = apiResponse['clouds'] # Array of objects, each containing: repr, type, altitude (* 100 for alt), modifier, direction
+        # metar_other = apiResponse['other']
+        metar_flight_rules = apiResponse['flight_rules']
+        metar_sanatized_str = apiResponse['sanitized']
+        metar_visibility = apiResponse['visibility'] # repr, value, spoken
+        metar_wind_dir = apiResponse['wind_direction'] # repr, value, spoken
+        # metar_wind_variable_direction = apiResponse['wind_variable_direction']
+        # metar_wind_gust = apiResponse['wind_gust']
+        metar_wind_speed = apiResponse['wind_speed'] # repr, value, spoken
+        # metar_wx_codes = apiResponse['wx_codes']
+        # metar_wx_raw_str = apiResponse['raw']
+        # metar_station = apiResponse['station'] # Just the ICAO code we have already
+        metar_time = apiResponse['time'] # repr, dt (datetime)
+        metar_remarks = apiResponse['remarks']
+        metar_remarks_info = apiResponse['remarks_info'] # dewpoint_decimal [repr, value, spoken], temperature_decimal [repr, value, spoken]
+        metar_dewpoint = apiResponse['dewpoint'] # repr, value, spoken
+        # metar_runway_visibility = apiResponse['runway_visibility']
+        metar_temperature = apiResponse['temperature'] # repr, value, spoken
+        # metar_units = apiResponse['units'] # altimeter, altitude, temperature, visibility, wind_speed
+
+
+        # End performance timer for total time
+        elapsed_time_in_ms_for_lookup = '{0:.2f}'.format(((time() - start_time) * 1000))
+
+        
         try:
+            # Construct embed
             embed = discord.Embed(
-                title=f'',
-                description='',
+                title=f'__**METAR for {airport_icao_code.upper()}**__',
+                description=f'**{metar_sanatized_str}**',
                 color=0x8b0eeb,
+            )
+
+            embed.add_field(
+                name='**Station (ICAO/IATA):',
+                value=f'{airport_icao_code}/{airport_iata_code}',
+                inline=True
+            )
+            embed.add_field(
+                name='**Observed at**:',
+                value=metar_time['dt'],
+                inline=True
+            )
+            embed.add_field(
+                name='**Dewpoint**:',
+                value=f"{metar_dewpoint['value']}°C ({(metar_dewpoint['value'] * (9 / 5)) + 32}°F)",
+                inline=True
+            )
+            embed.add_field(
+                name='**Temperature**:',
+                value=f"{metar_temperature['value']}°C ({(metar_temperature['value'] * (9 / 5)) + 32}°F)",
+                inline=True
+            )
+            embed.add_field(
+                name='**Winds**:',
+                value=f"{metar_wind_speed['value']} knots at {metar_wind_dir['value']}°",
+                inline=True
+            )
+            embed.add_field(
+                name='**Visibility**:',
+                value=f"{metar_visibility['value'] / 1.15078}nm ({metar_visibility['value']}sm)",
+                inline=True
+            )
+            embed.add_field(
+                name='**Pressure**:',
+                value=f"{'{0:.2f}'.format(metar_altimeter['value'] * 33.86)}hPa ({metar_altimeter['value']} inHg)",
+                inline=True
+            )
+
+            embed.add_field(
+                name='__**Sky Conditions**__:',
+                value=f"",
+                inline=True
+            )
+
+            embed.add_field(
+                name='__**Flight Category**__:',
+                value=metar_flight_rules,
+                inline=True
             )
 
             # Set UTC date on timestamp so discord can parse it
             embed.timestamp(datetime.utcnow())
 
             # Send embed
-            return await ctx.send(embed=embed)
+            return await ctx.send(
+                f'Time taken (lookup translation): **{elapsed_time_in_ms_for_lookup}**\n',
+                f'Time taken (lookup translation): **{elapsed_time_in_ms_total}**',
+                embed=embed,
+            )
 
         except:
             return None
