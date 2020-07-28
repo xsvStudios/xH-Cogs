@@ -299,11 +299,11 @@ class Aviation(commands.Cog):
                 inline=True
             )
 
-            embed.add_field(
-                name='__**Meta Information**__:',
-                value=f"Time at station: {metar_meta['timestamp']}\nStation last updated: {metar_meta['stations_updated']}\nLast cached event: {metar_meta['cache-timestamp']}",
-                inline=False
-            )
+            # embed.add_field(
+            #     name='__**Meta Information**__:',
+            #     value=f"Time at station: {metar_meta['timestamp']}\nStation last updated: {metar_meta['stations_updated']}\nLast cached event: {metar_meta['cache-timestamp']}",
+            #     inline=False
+            # )
 
             # Set UTC date on timestamp so discord can parse it
             # embed.timestamp(datetime.utcnow())
