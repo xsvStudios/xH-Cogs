@@ -309,10 +309,13 @@ class Aviation(commands.Cog):
             #     inline=False
             # )
 
-            discordEmbed = discord.Embed(title='TEST EMBED', description='TEST DESCRIPTION', color=0xffaabb)
+            discordEmbed = discord.Embed()
+            discordEmbed.title = 'TEST TITLE'
+            discordEmbed.description = 'TEST DESCRIPTION'
+            # discordEmbed.color = 0xffaabb
 
             # Set UTC date on timestamp so discord can parse it
-            discordEmbed.timestamp(datetime.utcnow())
+            # discordEmbed.timestamp(datetime.utcnow())
 
             # Send embed
             return await ctx.send(
