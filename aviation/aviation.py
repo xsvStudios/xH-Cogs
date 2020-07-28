@@ -242,7 +242,7 @@ class Aviation(commands.Cog):
         try:
             # Construct the body for the embed so it looks all nice
             body =  f"**{metar_sanatized_str}**\n\n"
-            body += f"**Airport Information**: {airport_name} - {airport_city}, {airport_state}, {airport_country} [**{airport_latitude}**/**{airport_longitude}**]\n\n"
+            body += f"**Airport Information**: {airport_name} - {airport_city}, {airport_state}, {airport_country} [long/lat][**{airport_longitude}**/**{airport_latitude}**]\n\n"
 
             # Construct if the station has an IATA code or not
             if airport_iata_code == '' or airport_iata_code == None:
