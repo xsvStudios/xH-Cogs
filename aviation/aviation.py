@@ -241,9 +241,11 @@ class Aviation(commands.Cog):
         
         try:
             # Construct embed
-            embed = discord.Embed()
-            embed.title = f'__**METAR for {airport_icao_code.upper()}**__'
-            embed.description = f'**{metar_sanatized_str}**'
+            embed = discord.Embed(
+                title=f'__**METAR for {airport_icao_code.upper()}**__'
+                description=f'**{metar_sanatized_str}**'
+                color=0xd90be0
+            )
 
             embed.add_field(
                 name='__**Airport Information**__',
@@ -287,11 +289,12 @@ class Aviation(commands.Cog):
                 inline=True
             )
 
-            # embed.add_field(
-            #     name='__**Sky Conditions**__:',
-            #     value=f"{metar_clouds[0]['']}",
-            #     inline=True
-            # )
+            if len(metar_clouds) > 0:
+                embed.add_field(
+                    name='__**Sky Conditions**__:',
+                    value=f"{metar_clouds[0]['']}",
+                    inline=True
+                )
 
             embed.add_field(
                 name='__**Flight Category**__:',
@@ -299,11 +302,11 @@ class Aviation(commands.Cog):
                 inline=True
             )
 
-            # embed.add_field(
-            #     name='__**Meta Information**__:',
-            #     value=f"Time at station: {metar_meta['timestamp']}\nStation last updated: {metar_meta['stations_updated']}\nLast cached event: {metar_meta['cache-timestamp']}",
-            #     inline=False
-            # )
+            embed.add_field(
+                name='__**Meta Information**__:',
+                value=f"Time at station: {metar_meta['timestamp']}\nStation last updated: {metar_meta['stations_updated']}",
+                inline=False
+            )
 
             # Set UTC date on timestamp so discord can parse it
             # embed.timestamp(datetime.utcnow())
