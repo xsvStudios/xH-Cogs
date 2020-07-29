@@ -54,6 +54,11 @@
 
 
 # Notes/TODO
+| Name | Description (Click to see full status)
+| --- | --- |
+| Aviation | <details><summary>A cog built to send various Flight data.  Requested by "actual" pilots...</summary></details>|
+| Steam | <details><summary>Various steam commands and checks.  Game server lists and details, user details and gamelists, sale/wishlist tracker.</summary> This cog has a lot has a few installation requirements to function.  Please visit ... for details</details> |
+
 
 | Name | Description (Click to see full status)
 | --- | --- | --- |
