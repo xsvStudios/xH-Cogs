@@ -5,7 +5,7 @@
   A Random set of bullshit cogs.
   <br>
 </h1>
-# Trusty-cogs V3
+# xsv-Cogs
 [![Red-DiscordBot](https://img.shields.io/badge/Red--DiscordBot-V3-red.svg)](https://github.com/Cog-Creators/Red-DiscordBot)
 [![Discord.py](https://img.shields.io/badge/Discord.py-rewrite-blue.svg)](https://github.com/Rapptz/discord.py/tree/rewrite)
 [![Join us on Discord]](https://discord.gg/UFmhc2p)
