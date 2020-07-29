@@ -1,10 +1,33 @@
+<h1 align="center">
+  <br>
+  <a href="https://xsvcommunity.com"><img src="http://xsv.is/images/default.png" alt="xsvCommunity presents"></a>
+  <br>
+  A Random set of bullshit cogs.
+  <br>
+</h1>
+# Trusty-cogs V3
+[![Red-DiscordBot](https://img.shields.io/badge/Red--DiscordBot-V3-red.svg)](https://github.com/Cog-Creators/Red-DiscordBot)
+[![Discord.py](https://img.shields.io/badge/Discord.py-rewrite-blue.svg)](https://github.com/Rapptz/discord.py/tree/rewrite)
+[![Join us on Discord]](https://discord.gg/UFmhc2p)
+
 # xsvCogs
 
-# Aviation Cog
-## Commands
-## Weather METAR
-### Command: !metar
-### Parameter: Station ID.
+
+## About Cogs
+
+| Name | Status/Version | Description (Click to see full status)
+| --- | --- | --- |
+| Aviation | **1.1.2** | <details><summary>A cog built to send various Flight data.  Requested by "actual" pilots...</summary></details>|
+| Steam | **1.3.8**| <details><summary>Various steam commands and checks.  Game server lists and details, user details and gamelists, sale/wishlist tracker.</summary> This cog has a lot has a few installation requirements to function.  Please visit ... for details</details> |
+| Battlefield | **1.2.0** | <details><summary>A cog to send various Battlefield 4 stats.</summary>Note: Due to EA's current non-existant support of any current games.  We are limited to what we can munipulate.</details> |
+
+
+# Notes/TODO
+## Aviation Cog
+### Commands
+### Weather METAR
+#### Command: !metar
+##### Parameter: Station ID.
 
 #### Data:
 * Flight Category: VFR
