@@ -1,19 +1,50 @@
+
 <h1 align="center">
   <br>
   <a href="https://xsvcommunity.com"><img src="http://xsv.is/images/default.png" alt="xsvCommunity presents"></a>
   <br>
-  A Random set of bullshit cogs.
+  xsv-Plugins.
   <br>
 </h1>
-# xsv-Cogs
-[![Red-DiscordBot](https://img.shields.io/badge/Red--DiscordBot-V3-red.svg)](https://github.com/Cog-Creators/Red-DiscordBot)
-[![Discord.py](https://img.shields.io/badge/Discord.py-rewrite-blue.svg)](https://github.com/Rapptz/discord.py/tree/rewrite)
-[![Join us on Discord]](https://discord.gg/UFmhc2p)
 
-# xsvCogs
+<h4 align="center">A Random set of bullshit plugins for discord.</h4>
+
+<p align="center">
+  <a href="https://discord.gg/UFmhc2p">
+    <img src="https://discordapp.com/api/guilds/281663524323983360/widget.png?style=shield" alt="Discord Server">
+  </a>
+  <a href="https://www.xsvcommunity.com/donate">
+    <img src="https://img.shields.io/badge/Support-xsv!-purple.svg" alt="Support the Community!">
+  </a>
+  <a href="https://www.python.org/downloads/">
+    <img src="https://img.shields.io/badge/Made%20With-Python%203.8-blue.svg?style=for-the-badge" alt="Made with Python 3.8">
+  </a>
+  <a href="https://crowdin.com/project/xsvcogs">
+    <img src="https://d322cqt584bo4o.cloudfront.net/red-discordbot/localized.svg" alt="Localized with Crowdin">
+  </a>
+  <a href="https://github.com/Rapptz/discord.py/">
+      <img src="https://img.shields.io/badge/discord-py-blue.svg" alt="discord.py">
+  </a>
+</p>
 
 
-## About Cogs
+<p align="center">
+  <a href="#overview">Overview</a>
+  •
+  <a href="#cogs">Installation</a>
+  •
+  <a href="http://">Documentation</a>
+  •
+  <a href="#installation ">Plugins</a>
+  •
+  <a href="#join-the-community">Community</a>
+  •
+  <a href="#license">License</a>
+</p>
+
+# Overview
+
+# Cogs
 
 | Name | Status/Version | Description (Click to see full status)
 | --- | --- | --- |
@@ -23,9 +54,12 @@
 
 
 # Notes/TODO
-## Aviation Cog
-### Commands
-### Weather METAR
+* Aviation Cog
+	* Commands
+	| Metar | <details><summary>Sends useful weather airport data by station ID.</summary>Note:General list of airports with IATA and ICAO codes: https://en.wikipedia.org/wiki/Lists_of_airports
+            **ICAO** Codes (4 letters): https://en.wikipedia.org/wiki/ICAO_airport_code
+            **IATA** Codes (3 letters): https://en.wikipedia.org/wiki/IATA_airport_code</details> |
+METAR
 #### Command: !metar
 ##### Parameter: Station ID.
 
@@ -72,3 +106,9 @@
 
 # Battlefield
 ## TODO
+
+
+
+# License
+
+| MIT License | <details><summary>A cog built to send various Flight data.  Requested by "actual" pilots...</summary></details>|
