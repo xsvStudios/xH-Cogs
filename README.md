@@ -54,8 +54,7 @@
 
 
 # Notes/TODO
-* Aviation Cog
-	* Commands
+
 | Name | Description (Click to see full status)
 | --- | --- | --- |
 | Metar | <details><summary>Sends useful weather airport data by station ID.</summary>Note:General list of airports with IATA and ICAO codes: https://en.wikipedia.org/wiki/Lists_of_airports
