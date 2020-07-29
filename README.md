@@ -56,10 +56,11 @@
 # Notes/TODO
 * Aviation Cog
 	* Commands
-	| Metar | <details><summary>Sends useful weather airport data by station ID.</summary>Note:General list of airports with IATA and ICAO codes: https://en.wikipedia.org/wiki/Lists_of_airports
-            **ICAO** Codes (4 letters): https://en.wikipedia.org/wiki/ICAO_airport_code
-            **IATA** Codes (3 letters): https://en.wikipedia.org/wiki/IATA_airport_code</details> |
-METAR
+| Name | Description (Click to see full status)
+| --- | --- | --- |
+| Metar | <details><summary>Sends useful weather airport data by station ID.</summary>Note:General list of airports with IATA and ICAO codes: https://en.wikipedia.org/wiki/Lists_of_airports
+    **ICAO** Codes (4 letters): https://en.wikipedia.org/wiki/ICAO_airport_code
+    **IATA** Codes (3 letters): https://en.wikipedia.org/wiki/IATA_airport_code</details> | METAR
 #### Command: !metar
 ##### Parameter: Station ID.
 
