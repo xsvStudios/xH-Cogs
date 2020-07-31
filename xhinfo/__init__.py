@@ -1,4 +1,4 @@
-from .info import xhInfo
+from .xhinfo import xhInfo
 
 
 def setup(bot):
