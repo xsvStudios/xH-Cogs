@@ -3,7 +3,7 @@ import discord
 from redbot.core import commands, checks
 from typing import Optional
 
-class Information(command.cog):
+class Information(command.Cog):
     """
 
     This cog contains excessively-Hardcores
