@@ -4,27 +4,9 @@ from redbot.core import commands, checks
 from typing import Optional
 
 class xhInfo(command.Cog):
-    """
-
-    This cog contains excessively-Hardcores
-    community information.  It has been built specifically
-    for the xH Community and will require modification to 
-    use elsewhere.
-
-    """
+    """ Community Info   """
     __author__ = ["Blynd"]
     __version__ = "1.0,0"
-
-    def __init__(self, bot):
-        self.bot = bot
-
-    def format_help_for_context(self, ctx: commands.Context) -> str:
-        """
-            Thanks Sinbad!
-        """
-        pre_processed = super().format_help_for_context(ctx)
-        return f"{pre_processed}\n\nCog Version: {self.__version__}"
-
 
     @commands.command()
     async def ourroles(self, ctx):
