@@ -1,6 +1,5 @@
 from .xhinfo import xhInfo
 
-
+# Setup file to read in the cog
 def setup(bot):
-    n = xhInfo(bot)
-    bot.add_cog(n)
+    bot.add_cog(xhInfo(bot))
