@@ -1,5 +1,6 @@
-from .info import Information
+from .info import xhInfo
 
 
 def setup(bot):
-    bot.add_cog(Information(bot))
+    n = xhInfo(bot)
+    bot.add_cog(n)
