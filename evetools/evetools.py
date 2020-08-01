@@ -1,11 +1,16 @@
 import discord
 import time
+import asyncio
+import logging
 from typing import Optional
 
 from redbot.core import Config, commands, checks
 from redbot.core.utils import chat_formatting as chat
+from redbot.core.i18n import Translator, cog_i18n
 
-class EveTools(commands.Cog):
+
+@cog_i18n(_)
+class EveTools(BaseCog):
     """
     Eve Tools
     """
@@ -99,3 +104,9 @@ class EveTools(commands.Cog):
         if (after.edited_at - after.created_at).total_seconds() > self.timeout:
             return
         await self.edit_process_commands(after)
+
+
+
+# Say things as the bot
+
+    @commands.command(hidden=True)
