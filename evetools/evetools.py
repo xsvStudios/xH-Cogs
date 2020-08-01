@@ -107,6 +107,7 @@ class EveTools(BaseCog):
 
 
 
-# Say things as the bot
-
     @commands.command(hidden=True)
+    async def say(self, ctx: commands.Context, *, msg: str):
+        """Say things as the bot"""
+        await ctx.send(msg)
