@@ -14,13 +14,23 @@ class EveTools(commands.Cog):
 
     def __init__(self, bot):
         self.bot = bot
+        self.config = Config.get_conf(self, identifier=11_23_0788, force_registration=True)
+        self.config.register_global(timeout=5)
+        self.timeout = None
 
+        
     def format_help_for_context(self, ctx: commands.Context) -> str:
         """
             Thanks Sinbad!
         """
         pre_processed = super().format_help_for_context(ctx)
         return f"{pre_processed}\n\nCog Version: {self.__version__}"
+
+    async def edit_process_commands(self, message: discord.Message):
+        """Same as Red's method (Red.process_commands), but dont dispatch message_without_command.  Thanks Zeph."""
+        if not message.author.bot:
+            ctx = await self.bot.get_context(message)
+            await self.bot.invoke(ctx)
 
 # Peplaces the base ping command of Red.
 
@@ -66,12 +76,11 @@ class EveTools(commands.Cog):
 # This adds a listener to bot to look for message edit if a command is mistyped.
     @commands.command()
     @checks.is_owner()
-    async def commandedit(self, ctx, *, timeout: float):
+    async def edittime(self, ctx, *, timeout: float):
         """
-        Edit a typo command
-
-        Default = 5
-        Disable = 0
+        Change how long the bot will listen for message edits to invoke as commands.
+        Defaults to 5 seconds.
+        Set to 0 to disable.
         """
         if timeout < 0:
             timeout = 0
@@ -79,7 +88,7 @@ class EveTools(commands.Cog):
         self.timeout = timeout
         await ctx.tick()
 
-    @listener()
+    @commands.Cog.listener()
     async def on_message_edit(self, before, after):
         if not after.edited_at:
             return
@@ -89,4 +98,4 @@ class EveTools(commands.Cog):
             self.timeout = await self.config.timeout()
         if (after.edited_at - after.created_at).total_seconds() > self.timeout:
             return
-        await self.bot.process_commands(after)
+        await self.edit_process_commands(after)
