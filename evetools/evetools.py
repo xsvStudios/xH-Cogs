@@ -1,7 +1,8 @@
 import discord
-from redbot.core import commands, checks
 from typing import Optional
 
+from redbot.core import commands, checks
+from redbot.core.utils import chat_formatting as chat
 
 class EveTools(commands.Cog):
     """
