@@ -9,6 +9,16 @@ from redbot.core.utils import chat_formatting as chat
 from redbot.core.i18n import Translator, cog_i18n
 
 
+_ = Translator("Say", __file__)
+BaseCog = getattr(commands, "Cog", object)
+
+# Red 3.0 backwards compatibility, thanks Sinbad
+listener = getattr(commands.Cog, "listener", None)
+if listener is None:
+
+    def listener(name=None):
+        return lambda x: x
+
 @cog_i18n(_)
 class EveTools(BaseCog):
     """
