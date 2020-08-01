@@ -282,7 +282,7 @@ class EveTools(BaseCog):
 
                 await u.send(embed=embed)
 
- @listener()
+    @listener()
     async def on_reaction_add(self, reaction, user):
         if user in self.interaction:
             channel = reaction.message.channel
