@@ -22,7 +22,7 @@ class EveTools(commands.Cog):
         pre_processed = super().format_help_for_context(ctx)
         return f"{pre_processed}\n\nCog Version: {self.__version__}"
 
-# Bot Server Ping
+# Peplaces the base ping command of Red.
 
     @commands.cooldown(rate=1, per=2, type=commands.BucketType.user)
     @commands.bot_has_permissions(embed_links=True)
@@ -60,3 +60,33 @@ class EveTools(commands.Cog):
         emb.set_field_at(2, name="Typing:", value=chat.box(str(round(ping)) + " ms"))
 
         await message.edit(embed=emb)
+
+
+# Command Editor.
+# This adds a listener to bot to look for message edit if a command is mistyped.
+    @commands.command()
+    @checks.is_owner()
+    async def commandedit(self, ctx, *, timeout: float):
+        """
+        Edit a typo command
+
+        Default = 5
+        Disable = 0
+        """
+        if timeout < 0:
+            timeout = 0
+        await self.config.timeout.set(timeout)
+        self.timeout = timeout
+        await ctx.tick()
+
+    @listener()
+    async def on_message_edit(self, before, after):
+        if not after.edited_at:
+            return
+        if before.content == after.content:
+            return
+        if self.timeout is None:
+            self.timeout = await self.config.timeout()
+        if (after.edited_at - after.created_at).total_seconds() > self.timeout:
+            return
+        await self.bot.process_commands(after)
