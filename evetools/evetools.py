@@ -2,7 +2,7 @@ import discord
 import time
 from typing import Optional
 
-from redbot.core import commands, checks
+from redbot.core import Config, commands, checks
 from redbot.core.utils import chat_formatting as chat
 
 class EveTools(commands.Cog):
