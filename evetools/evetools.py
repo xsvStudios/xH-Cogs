@@ -6,7 +6,7 @@ import logging
 from typing import Optional
 from laggron_utils.logging import close_logger, DisabledConsoleOutput
 
-from redbot.core import checks, commands
+from redbot.core import Config, checks, commands
 from redbot.core.i18n import Translator, cog_i18n
 from redbot.core.utils.tunnel import Tunnel
 
