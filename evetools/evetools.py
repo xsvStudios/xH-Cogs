@@ -1,4 +1,5 @@
 import discord
+import time
 from typing import Optional
 
 from redbot.core import commands, checks
