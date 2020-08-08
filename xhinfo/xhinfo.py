@@ -25,7 +25,7 @@ class Information(commands.Cog):
         return f"{pre_processed}\n\nCog Version: {self.__version__}"
 
     @commands.command()
-    async def ourrules(self, ctx, *):
+    async def ourrules(self, ctx):
         """
             Display rules for xhCommunity
         """
