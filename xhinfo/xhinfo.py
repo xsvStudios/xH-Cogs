@@ -29,7 +29,7 @@ class Information(commands.Cog):
         """
             Display rules for xhCommunity
         """
-        msg = """
+        text = """
         __**Community Roles Explained**__
 
 ***Members***
@@ -106,7 +106,7 @@ __**Support-Teams**__
 *Role created for access to hidden game channels.  Role has ZERO value*
         
         """
-        await ctx.send(msg)
+        await ctx.maybe_send_embed(text)
 
     @commands.command()
     async def modguide(self, ctx):
