@@ -20,5 +20,10 @@ Your sponsor is responsble for you and we will hold them accountable for your BS
 2. Your **Junior** status restarts.
 3. 1 warning will be added to your account.
 
+# Revisions
+# Sponsors drop out
+- Removal of sponsorship due to player ....
+- Sponsor has personal issues and needs to step out.
+
 **Step Three - Its VOTING time**
 After your **6** month period your application for **Member** tags will go to a community vote.  Vote will last **7** days.  **Majority** vote required.

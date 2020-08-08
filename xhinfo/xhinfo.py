@@ -6,13 +6,10 @@ from typing import Optional
 
 class Information(commands.Cog):
     """
-        This is mostly a test cog to try out new things
-        before I figure out how to make them work elsewhere
-        Generally for commands that don't fit anywhere else or are
-        not meant to be used by anyone.
+        Community Information and Guides
     """
     __author__ = ["Blynd"]
-    __version__ = "1.0.0"
+    __version__ = "1.2.6"
 
     def __init__(self, bot):
         self.bot = bot
@@ -27,7 +24,7 @@ class Information(commands.Cog):
     @commands.command()
     async def ourroles(self, ctx):
         """
-            Display rules for xhCommunity
+            Community Rules
         """
         text = """
 __**Community Roles Explained**__
@@ -104,6 +101,9 @@ __**Public Roles**__
 
     @commands.command()
     async def modguide(self, ctx):
+        """
+        Moderator Guide
+        """
         text = """**Community Moderator Guide**
 
 ```ini
@@ -149,28 +149,32 @@ __**Public Roles**__
 
     @commands.command()
     async def joinus(self, ctx):
+        """
+        Join our team!
+        """
         text = """
 **Join this Community**
 Interested in joining the community?  We have implemented a sponsorship program for new recruits.  Have no fear, the process is simple..
 
 **Step One -  Application Process**
 __Application Requirements__
-1. You need 2 sponsors that must be community members. 
+1: You need 2 sponsors that must be community members. 
 *Need a sponser?  Type `!apply` in any channel.  Fill out the form and lets see who is willing.*
 
 **Step Two - Junior Member Status**
 After your application for Junior Tags is approved.  You will have a **6** month trial period where we judge you as a person.  During this time there are a few things that can remove your **Junior Member** status.
 
 __Requirements__
-1. Don't be a Dick. 
-2. Maintain two sponsors at all times.
-3. Maintain less the 3 warnings for duration of sponsorship.
+1: Don't be a Dick. 
+2: Maintain two sponsors at all times.
+3: Maintain less the 3 warnings for duration of sponsorship.
 
 __Sponsorship__
-Your sponsor is responsble for you and we will hold them accountable for your BS.  At any time a sponsor can remove his sponsorship.  Few things happen if someone pulls out...
-1. You must find a replacement sponsor with 72 hours.
-2. Your **Junior** status restarts.
-3. 1 warning will be added to your account.
+Your sponsor is responsble for you and we will hold them accountable for your BS.  At any time you could lose a sponser.  Few things happen if someone pulls out...
+1: Loss of Sponsor
+    a: If you lose **1** sponser, you must find a replacement sponsor with 72 hours. Your sponsorship period restarts.
+    b. If you lose **2** sponsers, your **Junior** role will be removed and you trial is over.  Goodbye.
+3: 1 warning will be added to your account.
 
 **Step Three - Its VOTING time**
 After your **6** month period your application for **Member** tags will go to a community vote.  Vote will last **7** days.  **Majority** vote required.
@@ -179,7 +183,10 @@ After your **6** month period your application for **Member** tags will go to a 
 
 
     @commands.command()
-    async def ourrules(self, ctx):
+    async def rules(self, ctx):
+        """
+        Our community Rules
+        """
         text = """
 **Community Rules**
 *We give the benefit of the doubt...  Don't be a dumbass and you'll be fine.*
