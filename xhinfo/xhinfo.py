@@ -150,7 +150,7 @@ __**Public Roles**__
     @commands.command()
     async def joinus(self, ctx):
         text = """
-        **Join this Community**
+**Join this Community**
 Interested in joining the community?  We have implemented a sponsorship program for new recruits.  Have no fear, the process is simple..
 
 **Step One -  Application Process**
@@ -166,13 +166,14 @@ __Requirements__
 2. Maintain two sponsors at all times.
 3. Maintain less the 3 warnings for duration of sponsorship.
 
-
-__Sponsors__
-Your sponsor is responsble for you and we will hold them accountable.  At any time a sponsor can remove his sponsorship.  
+__Sponsorship__
+Your sponsor is responsble for you and we will hold them accountable for your BS.  At any time a sponsor can remove his sponsorship.  Few things happen if someone pulls out...
+1. You must find a replacement sponsor with 72 hours.
+2. Your **Junior** status restarts.
+3. 1 warning will be added to your account.
 
 **Step Three - Its VOTING time**
 After your **6** month period your application for **Member** tags will go to a community vote.  Vote will last **7** days.  **Majority** vote required.
-
         """
         await ctx.maybe_send_embed(text)
 
