@@ -167,6 +167,9 @@ __Requirements__
 3. Maintain less the 3 warnings for duration of sponsorship.
 
 
+__Sponsors__
+Your sponsor is responsble for you and we will hold them accountable.  At any time a sponsor can remove his sponsorship.  
+
 **Step Three - Its VOTING time**
 After your **6** month period your application for **Member** tags will go to a community vote.  Vote will last **7** days.  **Majority** vote required.
 
