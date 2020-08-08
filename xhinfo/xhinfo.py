@@ -68,10 +68,10 @@ class Information(commands.Cog):
 - If the members that were involved went overboard or stepped out of line. Moderator can add a warning for future review on the instance a member ever gets put in for a member removal vote."""
         await ctx.send(msg)
 
-@commands.command()
-async def test(self, ctx):
-    text = "Hello World"
-    await ctx.maybe_send_embed(simple_text)
+    @commands.command()
+    async def test(self, ctx):
+        text = "Hello World"
+        await ctx.maybe_send_embed(simple_text)
 
     @commands.command()
     async def donate(self, ctx: commands.Context):
