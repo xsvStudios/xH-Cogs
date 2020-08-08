@@ -3,7 +3,7 @@ from redbot.core import commands, checks
 from typing import Optional
 
 
-class Information(commands.Cog):
+class TrustyBot(commands.Cog):
     """
         This is mostly a test cog to try out new things
         before I figure out how to make them work elsewhere
@@ -28,10 +28,9 @@ class Information(commands.Cog):
         """
             Display rules for Trusty's testing server
         """
-        guidelines = "[Community Guidelines](https://discordapp.com/guidelines)"
-        terms = "[Discord Terms of Service](https://discordapp.com/terms)"
-        rules = (
-"""**Mediation** (if required)
+        message = """**Moderator Guide**
+
+**Mediation** (if required)
 - May be requested or required to contain toxicity from spewing.  Case by case basis
 
 ```css
@@ -64,15 +63,44 @@ class Information(commands.Cog):
 **Personal Attacks**
 - Interject as quickly as possible and stop the discussion
 - If the members that were involved went overboard or stepped out of line. Moderator can add a warning for future review on the instance a member ever gets put in for a member removal vote."""
-        )
-        em = discord.Embed(colour=discord.Colour.gold())
-        em.add_field(name="__Mod Guide__", value=rules)
-        em.set_image(url="https://media.giphy.com/media/245oYTbugpaxvSBjTS/giphy.gif")
-        # em.set_thumbnail(url="https://i.imgur.com/EfOnDQy.gif")
-        em.set_author(name=ctx.guild.name, icon_url="https://i.imgur.com/test.gif")
-        await ctx.message.delete()
-        await ctx.send(embed=em)
+        await self.bot.say(message)
 
+
+**Moderator Guide**
+
+**Mediation** (if required)
+- May be requested or required to contain toxicity from spewing.  Case by case basis
+
+```css
+< Public Channels >
+```
+
+**Personal Attacks**
+- Moderator to interject and drop the gavel on the discussion.
+- Personal attack posts to be removed.
+- If required the entire conversation to be removed.
+
+**Political Based Posts** *(within means)*
+- Keep it in the Politics Channels
+- Remove any posts that are outside of the channel.
+- Personal attacks removed.
+
+**Disputes**
+- Interject the situation and STOP it.
+- If Members tell them, move it to members channel or private.
+- If not-members tell, then stfu nicely and move to private.
+- Remove posts is deemed necessary.
+
+**NSFW**
+- Remove posts from public channels that may be classified as NSFW. *Moderator discretion*
+
+```css
+< Members Channels >
+```
+
+**Personal Attacks**
+- Interject as quickly as possible and stop the discussion
+- If the members that were involved went overboard or stepped out of line. Moderator can add a warning for future review on the instance a member ever gets put in for a member removal vote.
 
     @commands.command()
     async def donate(self, ctx: commands.Context):
