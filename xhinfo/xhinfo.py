@@ -74,6 +74,7 @@ class Information(commands.Cog):
 
 ```css
 < General >
+```
 **Keep Shit calm**
 - Main task.. thats it...
 **Mediation** (if required)
