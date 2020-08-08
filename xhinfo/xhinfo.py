@@ -146,24 +146,22 @@ __**Public Roles**__
         await ctx.maybe_send_embed(text)
 
 
-        
+
     @commands.command()
     async def joinus(self, ctx):
-        text = """*
-        **Join our Community**
+        text = """
+        **Join this Community**
 Interested in joining the community?  We have implemented a sponsorship program for new recruits.  Have no fear, the process is simple..
 
 **Step One -  Application Process**
-Application Requirements
-
-2. Require 2 sponsors that must be community members. 
-
+__Application Requirements__
+1. You need 2 sponsors that must be community members. 
 *Need a sponser?  Type `!apply` in any channel.  Fill out the form and lets see who is willing.*
 
 **Step Two - Junior Member Status**
 After your application for Junior Tags is approved.  You will have a **6** month trial period where we judge you as a person.  During this time there are a few things that can remove your **Junior Member** status.
 
-Requirements
+__Requirements__
 1. Don't be a Dick. 
 2. Maintain two sponsors at all times.
 3. Maintain less the 3 warnings for duration of sponsorship.
