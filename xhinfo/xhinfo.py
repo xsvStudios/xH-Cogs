@@ -63,7 +63,7 @@ class Information(commands.Cog):
 **Personal Attacks**
 - Interject as quickly as possible and stop the discussion
 - If the members that were involved went overboard or stepped out of line. Moderator can add a warning for future review on the instance a member ever gets put in for a member removal vote."""
-        await self.bot.say(message)
+        await channel.send(message)
 
 
 
