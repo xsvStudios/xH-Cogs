@@ -3,7 +3,7 @@ from redbot.core import commands, checks
 from typing import Optional
 
 
-class xhInfo(commands.Cog):
+class Information(commands.Cog):
     """
         This is mostly a test cog to try out new things
         before I figure out how to make them work elsewhere
