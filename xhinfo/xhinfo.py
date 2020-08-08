@@ -9,7 +9,7 @@ class Information(commands.Cog):
         This is mostly a test cog to try out new things
         before I figure out how to make them work elsewhere
         Generally for commands that don't fit anywhere else or are
-        not meant to be used by anyone except TrustyBot
+        not meant to be used by anyone.
     """
     __author__ = ["Blynd"]
     __version__ = "1.0.0"
@@ -71,7 +71,7 @@ class Information(commands.Cog):
     @commands.command()
     async def test(self, ctx):
         text = "Hello World"
-        await ctx.maybe_send_embed(simple_text)
+        await ctx.maybe_send_embed(text)
 
     @commands.command()
     async def donate(self, ctx: commands.Context):
