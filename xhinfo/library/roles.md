@@ -68,7 +68,10 @@
 
 
 
-**Community Roles Explained**
+**Roles Explained**
+
+*Join the team !  Type !apply to join the team.*
+*Please read the Community guides.  Commands: !rules !modguide !ourroles !policy*
 
 # Members
 *Considered the most important role in the community*
@@ -85,8 +88,8 @@
 __**Community Roles Explained**__
 
 ***Members***
-*Considered the most important role in the community*
 ```md
+> Considered the most important role in the community
 # Task
 1. Votes on all major community decisions and recruits.
 # Removal/Ban
@@ -95,9 +98,12 @@ __**Community Roles Explained**__
     3. If <Moderator> deems case just. <Moderator> to submit vote to all <Members> for removal/ban. (Majority vote required)
 ```
 
+__**Support-Teams**__
+* Join the team !  Type !apply to join the team.
+* Please read the Community guides.  Commands: !rules !modguide !ourroles !policy
 ***Council***
-*Senior Members nominated by the community*
 ```md
+> Senior Members nominated by the community
 # Tasks
     1. Manage the operations of the Community to continue the growing success.
     2. Manage <Support-Teams>
@@ -105,11 +111,6 @@ __**Community Roles Explained**__
 # Removal/Ban
     1. Any case to be reviewed by <Council>.
 ```
-
-__**Support-Teams**__
-* Join the team !  Type !apply to join the team.
-* Please read the Community guides.  Commands: !rules !modguide !ourroles !policy
-
 ***Moderator***
 ```md
 # Tasks
@@ -117,7 +118,6 @@ __**Support-Teams**__
 # Role Removal
     1. <Council> to review any case against a <Moderator>
 ```
-
 ***Development Team***
 ```md
 # Task
@@ -125,7 +125,6 @@ __**Support-Teams**__
 # Role Removal
     1. <Council> to review any case against a <Development-Team>
 ```
-
 ***Game Server Admin***
 ```md
 # Task
@@ -134,18 +133,16 @@ __**Support-Teams**__
     1. <Council> to review any case against a <Server-Admin>
 ```
 
-**Public Roles**
-*Gameroles can be joined by typing !srole*
+__**Public Roles**__
 
 ***Trusted Guest***
-*A person deemed trusted to have access to certain channels and voice activation*
 ```md
+> A person deemed trusted to have access to certain channels and voice activation
 # Task
     1. Don't be a dick.
 # Role Removal
     1. No case required.  <Moderator(s)> decision.
 ```
-
 ***Guests***
 ```md
 # Task
@@ -153,6 +150,7 @@ __**Support-Teams**__
 # Kick/Ban
     1. No case required.  <Moderator(s)> decision.
 ```
-
 ***Gameroles***
-*Role created for access to hidden game channels.  Role has ZERO value*
+```md
+> Role created for access to hidden game channels.  Join role with !srole  Role has ZERO value
+```
