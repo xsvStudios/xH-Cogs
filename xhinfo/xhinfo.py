@@ -172,8 +172,8 @@ __Requirements__
 __Sponsorship__
 Your sponsor is responsble for you and we will hold them accountable for your BS.  At any time you could lose a sponser.  Few things happen if someone pulls out...
 1: Loss of Sponsor
-    a: If you lose **1** sponser, you must find a replacement sponsor with 72 hours. Your sponsorship period restarts.
-    b. If you lose **2** sponsers, your **Junior** role will be removed and you trial is over.  Goodbye.
+    - If you lose **1** sponser, you must find a replacement sponsor with 72 hours. Your sponsorship period restarts.
+    - If you lose **2** sponsers, your **Junior** role will be removed and you trial is over.  Goodbye.
 3: 1 warning will be added to your account.
 
 **Step Three - Its VOTING time**
