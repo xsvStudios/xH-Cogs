@@ -25,9 +25,9 @@ class Information(commands.Cog):
         return f"{pre_processed}\n\nCog Version: {self.__version__}"
 
     @commands.command()
-    async def ourrules(self, ctx, *, message):
+    async def ourrules(self, ctx, *):
         """
-            Display rules for Trusty's testing server
+            Display rules for xhCommunity
         """
         msg = """**Moderator Guide**
 
