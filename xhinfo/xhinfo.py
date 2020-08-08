@@ -24,7 +24,8 @@ class Information(commands.Cog):
         return f"{pre_processed}\n\nCog Version: {self.__version__}"
 
     @commands.command()
-    async def ourrules(self, ctx: commands.Context):
+    async def ourrules(self, ctx, *, message):
+        channel = ctx.channel
         """
             Display rules for Trusty's testing server
         """
