@@ -1,5 +1,6 @@
 import discord
 from redbot.core import commands, checks
+from redbot.core.utils.chat_formatting import box
 from typing import Optional
 
 
@@ -25,11 +26,10 @@ class Information(commands.Cog):
 
     @commands.command()
     async def ourrules(self, ctx, *, message):
-        channel = ctx.channel
         """
             Display rules for Trusty's testing server
         """
-        message = """**Moderator Guide**
+        msg = """**Moderator Guide**
 
 **Mediation** (if required)
 - May be requested or required to contain toxicity from spewing.  Case by case basis
@@ -64,7 +64,7 @@ class Information(commands.Cog):
 **Personal Attacks**
 - Interject as quickly as possible and stop the discussion
 - If the members that were involved went overboard or stepped out of line. Moderator can add a warning for future review on the instance a member ever gets put in for a member removal vote."""
-        await channel.send(message)
+        await ctx.send(msg)
 
 
 
