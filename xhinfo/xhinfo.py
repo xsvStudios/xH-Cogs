@@ -3,7 +3,7 @@ from redbot.core import commands, checks
 from typing import Optional
 
 
-class TrustyBot(commands.Cog):
+class xhInfo(commands.Cog):
     """
         This is mostly a test cog to try out new things
         before I figure out how to make them work elsewhere
