@@ -68,21 +68,6 @@
 
 
 
-**Roles Explained**
-
-*Join the team !  Type !apply to join the team.*
-*Please read the Community guides.  Commands: !rules !modguide !ourroles !policy*
-
-# Members
-*Considered the most important role in the community*
-```md
-[Task]
-1. Votes on all major community decisions and recruits.
-[Removal/Ban]
-    1. <Moderator(s)> to review case.
-    2. Accused <Member> to defend themselves to <Moderator(s)>.
-    3. If <Moderator> deems case just. <Moderator> to submit vote to all <Members> for removal/ban. (Majority vote required)
-```
 
 
 __**Community Roles Explained**__
@@ -99,8 +84,8 @@ __**Community Roles Explained**__
 ```
 
 __**Support-Teams**__
-* Join the team !  Type !apply to join the team.
-* Please read the Community guides.  Commands: !rules !modguide !ourroles !policy
+*Join the team !  Type !apply to join the team.*
+*Please read the Community guides.  Commands: !rules !modguide !ourroles !policy*
 ***Council***
 ```md
 > Senior Members nominated by the community

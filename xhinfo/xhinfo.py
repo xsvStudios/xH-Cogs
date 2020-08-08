@@ -30,7 +30,7 @@ class Information(commands.Cog):
             Display rules for xhCommunity
         """
         text = """
-       __**Community Roles Explained**__
+__**Community Roles Explained**__
 
 ***Members***
 ```md
@@ -44,8 +44,8 @@ class Information(commands.Cog):
 ```
 
 __**Support-Teams**__
-* Join the team !  Type !apply to join the team.
-* Please read the Community guides.  Commands: !rules !modguide !ourroles !policy
+*Join the team !  Type !apply to join the team.*
+*Please read the Community guides.  Commands: !rules !modguide !ourroles !policy*
 ***Council***
 ```md
 > Senior Members nominated by the community
@@ -98,7 +98,7 @@ __**Public Roles**__
 ***Gameroles***
 ```md
 > Role created for access to hidden game channels.  Join role with !srole  Role has ZERO value
-```
+```s
         """
         await ctx.maybe_send_embed(text)
 
