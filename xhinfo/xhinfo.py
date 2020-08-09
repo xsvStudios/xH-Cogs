@@ -235,7 +235,7 @@ The community has approved partner communities. If they are not on the approved 
 Community Donations are appreciated but **not** required!  Occasionally we will self host gameservers that have a operating cost.  To maintain these servers we utilize the community donations when necessary.
 
 __Donations Policy__
-Do you host a server under the community name?  Sweet ! We know that most of the cost comes out of your own wallet!  We don't want to control that.  However the moment you list for donations we require a few things to make sure our community name is not abused.  All donations must be reported to the Council monthly.  We only ask that all funds received in the form of donations be utilized specifically for its purpose.  Any donations that exceeds your requirements must be then put into the Community Donations Fund.  
+Do you host a server under the community name?  Sweet ! We know that most of the cost comes out of your own wallet!  We don't want to control that.  However we have been burned in the past, and the moment you list for donations we require a few things to make sure our community name is not abused.  All donations must be reported to the Council monthly.  We only ask that all funds received in the form of donations be utilized specifically for its purpose.  Any donations that exceeds your requirements must be then put into the Community Donations Fund.  
 
 __Accountability__
 Donations are a very overlooked item.  Most people don't look into how this is used.  We disagree with this concept as we have witnessed members stealing donations for personal gain.  All money in which anyone donates to group is required to be 100% accounted for.  
