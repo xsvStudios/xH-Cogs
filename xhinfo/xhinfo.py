@@ -225,24 +225,15 @@ The community has approved partner communities. If they are not on the approved 
         await ctx.send(msg)
 
     @commands.command()
-    async def donatation(self, ctx: commands.Context):
+    async def rules(self, ctx):
         """
-            Become a Community Donor for perks!
-            https://xsvcommunity.com/donate
+        Our community Rules
         """
-        msg = (
-            """
-                **Community Donations**
-*Donations are a very overlooked issue.  Most poeple don't look into how this is used.  We disagree with this concept.  All money should be accountable.  
-The one thing we strive to do is make sure our books are open.  All donations recieved are added to a community fund controlled by the **Council**. 
-Any withdrawl from donations requires community approval.  Community votes are hosted once a month on dates specified in the **Community Meeting Board**
-
-            """
-        )
-        await ctx.send(msg)
-
-
+        text = """
     **Community Donations**
 *Donations are a very overlooked issue.  Most poeple don't look into how this is used.  We disagree with this concept.  All money should be accountable.  
 The one thing we strive to do is make sure our books are open.  All donations recieved are added to a community fund controlled by the **Council**. 
 Any withdrawl from donations requires community approval.  Community votes are hosted once a month on dates specified in the **Community Meeting Board**
+
+        """
+        await ctx.maybe_send_embed(text)
