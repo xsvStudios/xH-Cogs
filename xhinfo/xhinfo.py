@@ -225,7 +225,7 @@ The community has approved partner communities. If they are not on the approved 
         await ctx.send(msg)
 
     @commands.command()
-    async def rules(self, ctx):
+    async def donations(self, ctx):
         """
         Our community Rules
         """
