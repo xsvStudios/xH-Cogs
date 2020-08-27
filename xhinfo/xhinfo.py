@@ -257,7 +257,7 @@ We offer some sweet ass perks for monthly donors for a little as $5 a month.  (T
 
     @commands.command()
     async def delegateAll(self, ctx):
-        """I delegate to the fucking staff"""
+        """I delegate to all the fucking staff. \n **Support Team** and **Council**"""
         memlist = []
 
         for m in ctx.guild.get_role(264156088440455168).members:
@@ -270,10 +270,10 @@ We offer some sweet ass perks for monthly donors for a little as $5 a month.  (T
 
     @commands.command()
     async def voluntold(self,ctx):
-        """I volunteer people for the dumb shit.."""
+        """I volunteer **Support Team** for the dumb shit.."""
         await ctx.send(random.choice(ctx.guild.get_role(727367693996523631).members).mention)
 
     @commands.command()
     async def delegate(self,ctx):
-        """I volunteer people for the dumb shit.."""
+        """I delegate to a **Council** member for the dumb shit.."""
         await ctx.send(random.choice(ctx.guild.get_role(687186781388537858).members).mention)
