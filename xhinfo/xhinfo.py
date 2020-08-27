@@ -257,7 +257,7 @@ We offer some sweet ass perks for monthly donors for a little as $5 a month.  (T
 
     @commands.command()
     async def delegateAll(self, ctx):
-        """I delegate to all the fucking staff. \n **Support Team** and **Council**"""
+        """I delegate to **All** the fucking staff. \n **Support Team** and **Council**"""
         memlist = []
 
         for m in ctx.guild.get_role(264156088440455168).members:
