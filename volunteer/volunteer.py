@@ -73,10 +73,10 @@ class Volunteer(commands.Cog):
 **Looking to join one the xH Community Support Teams?**\n
 We are currently accepting volunteers applications for the roles listed below:
 
-**Moderator Team:** Volunteers to help monitor and maintain the community rules and values discord.
-**Development Team:** A group built of hobbyist and professionals that assist in gameserver creation, server management, game modding, website development, support the Community Outreach team, etc.
-**Design Team:** Makes the community look awesome.  The creative group of the community that helps with the logos, website design, promotional design, gameserver custom design work, etc..
-**Community Outreach:** Manages the xH social media platforms, xH Community approved streamers, xH Community youtube videos, Community Events, giveaways and raffles. 
+**Moderator Team:** Volunteers that help monitor and maintain the communities rules and values in our discord.
+**Development Team:** A group of hobbyist and professionals that assist in gameserver creation, server management, game modding, website development, support the Community Outreach Team, etc.
+**Design Team:** They make the community look awesome...  The creative members of the community that have talent in the design world and help with logos, website design, gameserver design, support the Community Outreach Team, etc..
+**Community Outreach:** This group contains the approved community streamers, social media platform team, community youtube content creators, coordinates community Events, giveaways and raffles. 
 ~~**Game Server Admins** - Volunteers to assist in our active game servers.~~ *Check back later.
 
 Applications will be reviewed by the **xH Community Council**.  A update from the team will be sent to you no longer then 7 days after app is submitted.
