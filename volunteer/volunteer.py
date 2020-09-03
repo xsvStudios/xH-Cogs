@@ -69,17 +69,16 @@ class Volunteer(commands.Cog):
             )
         try:
             await ctx.author.send(
-                """"
-                
-                ***Looking to join the xH Volunteer Support Team?***\n
-                We are currently accepting volunteers applications for the roles listed below:\n\n
+                """
+**Looking to join the xH Volunteer Support Team?**\n
+We are currently accepting volunteers applications for the roles listed below:
 
-                **Moderator Team:** Volunteers to help monitor and maintain the community discord. With the full support and backing of the Community if any issues arise. \n
-                **Development Team:** `Design team`, `Game Modding team`, `Script Kiddies`, `Website Development/Design`, `Social Media Team`, `Streamer & Youtube Support` and the list grows.\n
-                ~~**Game Server Admins** - Volunteers to assist in our active game servers.~~ *Check back later.
-                \n
-                > What position are you applying for?\n
-                *You have maximum of 5 minutes for each following question.*                
+**Moderator Team:** Volunteers to help monitor and maintain the community discord. With the full support and backing of the Community if any issues arise. 
+**Development Team:** `Design team`, `Game Modding team`, `Script Kiddies`, `Website Development/Design`, `Social Media Team`, `Streamer & Youtube Support` and the list grows.
+~~**Game Server Admins** - Volunteers to assist in our active game servers.~~ *Check back later.
+
+***What position are you applying for?***
+*You have maximum of 5 minutes for each following question.*                
                 """
             )
         except discord.Forbidden:
