@@ -107,7 +107,7 @@ Applications will be reviewed by the `xH Community Council`.  A update from the 
             name = await self.bot.wait_for("message", timeout=30, check=check)
         except asyncio.TimeoutError:
             return await ctx.author.send("You took too long. Try again, please.")
-        await ctx.author.send("> **How old are you?**")
+        await ctx.author.send("How old are you?")
         try:
             age = await self.bot.wait_for("message", timeout=30, check=check)
         except asyncio.TimeoutError:
@@ -134,7 +134,7 @@ Applications will be reviewed by the `xH Community Council`.  A update from the 
             experience = await self.bot.wait_for("message", timeout=30, check=check)
         except asyncio.TimeoutError:
             return await ctx.author.send("```diff\n- You took too long. Try again, please.```")
-        await ctx.author.send("Why do you want to be a member of our staff?")
+        await ctx.author.send("Why do you want to be a member of our team?")
         try:
             reason = await self.bot.wait_for("message", timeout=30, check=check)
         except asyncio.TimeoutError:
