@@ -75,6 +75,8 @@ We are currently accepting volunteers applications for the roles listed below:
 
 **Moderator Team:** Volunteers to help monitor and maintain the community discord. With the full support and backing of the Community if any issues arise. 
 **Development Team:** `Design team`, `Game Modding team`, `Script Kiddies`, `Website Development/Design`, `Social Media Team`, `Streamer & Youtube Support` and the list grows.
+**Design Team:** `
+**Events Team:**
 ~~**Game Server Admins** - Volunteers to assist in our active game servers.~~ *Check back later.
 
 ***What position are you applying for?***
@@ -93,12 +95,12 @@ We are currently accepting volunteers applications for the roles listed below:
         try:
             position = await self.bot.wait_for("message", timeout=30, check=check)
         except asyncio.TimeoutError:
-            return await ctx.send("You took too long. Try again, please.")
+            return await ctx.author.send("You took too long. Try again, please.")
         await ctx.author.send("> What is your name?")
         try:
             name = await self.bot.wait_for("message", timeout=30, check=check)
         except asyncio.TimeoutError:
-            return await ctx.send("You took too long. Try again, please.")
+            return await ctx.author.send("You took too long. Try again, please.")
         await ctx.author.send("> **How old are you?**")
         try:
             age = await self.bot.wait_for("message", timeout=30, check=check)
