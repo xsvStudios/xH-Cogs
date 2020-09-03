@@ -1,0 +1,8 @@
+{
+    "author" : ["saurichable & xBlynd"],
+    "install_msg" : "This cog has been modified to accept volunteers towards a variety of roles.**",
+    "name" : "Volunteer",
+    "short" : "Simple application cog.",
+    "description" : "Just a simple volunteer cog.",
+    "tags" : ["volunteer", "app"]
+}
