@@ -95,7 +95,7 @@ We are currently accepting volunteers applications for the roles listed below:
         try:
             position = await self.bot.wait_for("message", timeout=30, check=check)
         except asyncio.TimeoutError:
-            return await ctx.author.send("You took too long. Try again, please.")
+            return await ctx.author.send("```diff\n- You took too long. Try again, please.```")
         await ctx.author.send("> What is your name?")
         try:
             name = await self.bot.wait_for("message", timeout=30, check=check)
