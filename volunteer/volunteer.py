@@ -70,14 +70,16 @@ class Volunteer(commands.Cog):
         try:
             await ctx.author.send(
                 """
-**Looking to join the xH Volunteer Support Team?**\n
+**Looking to join one the xH Community Support Teams?**\n
 We are currently accepting volunteers applications for the roles listed below:
 
-**Moderator Team:** Volunteers to help monitor and maintain the community discord. With the full support and backing of the Community if any issues arise. 
-**Development Team:** `Design team`, `Game Modding team`, `Script Kiddies`, `Website Development/Design`, `Social Media Team`, `Streamer & Youtube Support` and the list grows.
-**Design Team:** `
-**Events Team:**
+**Moderator Team:** Volunteers to help monitor and maintain the community rules and values discord.
+**Development Team:** A group built of hobbyist and professionals that assist in gameserver creation, server management, game modding, website development, support the Community Outreach team, etc.
+**Design Team:** Makes the community look awesome.  The creative group of the community that helps with the logos, website design, promotional design, gameserver custom design work, etc..
+**Community Outreach:** Manages the xH social media platforms, xH Community approved streamers, xH Community youtube videos, Community Events, giveaways and raffles. 
 ~~**Game Server Admins** - Volunteers to assist in our active game servers.~~ *Check back later.
+
+Applications will be reviewed by the **xH Community Council**.  A update from the team will be sent to you no longer then 7 days after app is submitted.
 
 ***What position are you applying for?***
 *You have maximum of 5 minutes for each following question.*                
