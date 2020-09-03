@@ -86,7 +86,7 @@ The roles listed below are currently looking for volunteers.  If you are interes
 Applications will be reviewed by the `xH Community Council`.  A update from the team will be sent to you no longer then 7 days after app is submitted.
 
 ***What position are you applying for?***
-*You have maximum of 5 minutes for each following question.*              
+*You have maximum of 10 minutes for each following question.*              
                 """
             )
         except discord.Forbidden:
@@ -99,44 +99,44 @@ Applications will be reviewed by the `xH Community Council`.  A update from the 
             return m.author == ctx.author and m.channel == ctx.author.dm_channel
 
         try:
-            position = await self.bot.wait_for("message", timeout=30, check=check)
+            position = await self.bot.wait_for("message", timeout=600, check=check)
         except asyncio.TimeoutError:
             return await ctx.author.send("```diff\n- You took too long. Try again, please.```")
         await ctx.author.send("What is your name?")
         try:
-            name = await self.bot.wait_for("message", timeout=30, check=check)
+            name = await self.bot.wait_for("message", timeout=600, check=check)
         except asyncio.TimeoutError:
             return await ctx.author.send("You took too long. Try again, please.")
         await ctx.author.send("How old are you?")
         try:
-            age = await self.bot.wait_for("message", timeout=30, check=check)
+            age = await self.bot.wait_for("message", timeout=600, check=check)
         except asyncio.TimeoutError:
             return await ctx.author.send("```diff\n- You took too long. Try again, please.```")
         await ctx.author.send("What timezone are you in? (Google is your friend.)")
         try:
-            timezone = await self.bot.wait_for("message", timeout=30, check=check)
+            timezone = await self.bot.wait_for("message", timeout=600, check=check)
         except asyncio.TimeoutError:
             return await ctx.author.send("```diff\n- You took too long. Try again, please.```")
         await ctx.author.send("How many days per week can you be active?")
         try:
-            days = await self.bot.wait_for("message", timeout=30, check=check)
+            days = await self.bot.wait_for("message", timeout=600, check=check)
         except asyncio.TimeoutError:
             return await ctx.author.send("```diff\n- You took too long. Try again, please.```")
         await ctx.author.send("How many hours per day can you be active?")
         try:
-            hours = await self.bot.wait_for("message", timeout=30, check=check)
+            hours = await self.bot.wait_for("message", timeout=600, check=check)
         except asyncio.TimeoutError:
             return await ctx.author.send("```diff\n- You took too long. Try again, please.```")
         await ctx.author.send(
             "Do you have any previous experience? If so, please describe."
         )
         try:
-            experience = await self.bot.wait_for("message", timeout=30, check=check)
+            experience = await self.bot.wait_for("message", timeout=600, check=check)
         except asyncio.TimeoutError:
             return await ctx.author.send("```diff\n- You took too long. Try again, please.```")
         await ctx.author.send("Why do you want to be a member of our team?")
         try:
-            reason = await self.bot.wait_for("message", timeout=30, check=check)
+            reason = await self.bot.wait_for("message", timeout=600, check=check)
         except asyncio.TimeoutError:
             return await ctx.author.send("```diff\n- You took too long. Try again, please.```")
         embed = discord.Embed(color=await ctx.embed_colour(), timestamp=datetime.now())
