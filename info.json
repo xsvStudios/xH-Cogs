@@ -11,7 +11,7 @@
     "disabled" : false,
     "end_user_data_statement" : "This cog stores User ID's and voluntary information for the purposes of team applications.",
     "hidden" : false,
-    "install_msg" : "This was a custom cog that was made for some stuff. TODO message here.",
+    "install_msg" : "This was a custom cog that was made for some stuff for our community.  Most cogs will be hardcoded to our discord.  *That is your warning*",
     "max_bot_version" : "0.0.0",
     "min_bot_version" : "3.1.8",
     "min_python_version" : [
