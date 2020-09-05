@@ -73,20 +73,20 @@ class Volunteer(commands.Cog):
 **Looking to join one of the xH Community Support Teams?**
 The roles listed below are currently looking for volunteers.  If you are interested in joining one of our teams, we have a small application for you.
 
-**Moderator Team:** Volunteers that help monitor and maintain the communities rules and values in our discord.
+**__Moderator Team:__** Volunteers that help monitor and maintain the communities rules and values in our discord.
 
-**Development Team:** A group of hobbyist and professionals that assist in gameserver creation, server management, game modding, website development, support the Community Outreach Team, etc.
+**_Development Team:__** A group of hobbyist and professionals that assist in gameserver creation, server management, game modding, website development, support the Community Outreach Team, etc.
 
-**Design Team:** They make the community look awesome...  The creative members of the community that have talent in the design world and help with logos, website design, gameserver design, support the Community Outreach Team, etc..
+**__Design Team:__** They make the community look awesome...  The creative members of the community that have talent in the design world and help with logos, website design, gameserver design, support the Community Outreach Team, etc..
 
-**Community Outreach:** This group contains the approved community streamers, social media platform team, community youtube content creators, coordinates community Events, giveaways and raffles. 
+**__Community Outreach:__** This group contains the approved community streamers, social media platform team, community youtube content creators, coordinates community Events, giveaways and raffles. 
 
-~~**Game Server Admins** - Volunteers to assist in our active game servers.~~ *Coming soon! Check back later.*
+~~**__Game Server Admins__** - Volunteers to assist in our active game servers.~~ *Coming soon! Check back later.*
 
-Applications will be reviewed by the `xH Community Council`.  A update from the team will be sent to you no longer then 7 days after app is submitted.
+Applications will be reviewed by the `xH Community Council`.  A update from the team will be sent to you no longer then 7 days after app is submitted.  *We tend to move faster then this, however life has been difficult for all this year.*
 
 ***What position are you applying for?***
-*You have maximum of 10 minutes for each following question.*              
+*You have maximum of 15 minutes for each following question.*              
                 """
             )
         except discord.Forbidden:
@@ -99,44 +99,44 @@ Applications will be reviewed by the `xH Community Council`.  A update from the 
             return m.author == ctx.author and m.channel == ctx.author.dm_channel
 
         try:
-            position = await self.bot.wait_for("message", timeout=600, check=check)
+            position = await self.bot.wait_for("message", timeout=900, check=check)
         except asyncio.TimeoutError:
             return await ctx.author.send("```diff\n- You took too long. Try again, please.```")
         await ctx.author.send("What is your name?")
         try:
-            name = await self.bot.wait_for("message", timeout=600, check=check)
+            name = await self.bot.wait_for("message", timeout=900, check=check)
         except asyncio.TimeoutError:
             return await ctx.author.send("You took too long. Try again, please.")
         await ctx.author.send("How old are you?")
         try:
-            age = await self.bot.wait_for("message", timeout=600, check=check)
+            age = await self.bot.wait_for("message", timeout=900, check=check)
         except asyncio.TimeoutError:
             return await ctx.author.send("```diff\n- You took too long. Try again, please.```")
         await ctx.author.send("What timezone are you in? (Google is your friend.)")
         try:
-            timezone = await self.bot.wait_for("message", timeout=600, check=check)
+            timezone = await self.bot.wait_for("message", timeout=900, check=check)
         except asyncio.TimeoutError:
             return await ctx.author.send("```diff\n- You took too long. Try again, please.```")
         await ctx.author.send("How many days per week can you be active?")
         try:
-            days = await self.bot.wait_for("message", timeout=600, check=check)
+            days = await self.bot.wait_for("message", timeout=900, check=check)
         except asyncio.TimeoutError:
             return await ctx.author.send("```diff\n- You took too long. Try again, please.```")
         await ctx.author.send("How many hours per day can you be active?")
         try:
-            hours = await self.bot.wait_for("message", timeout=600, check=check)
+            hours = await self.bot.wait_for("message", timeout=900, check=check)
         except asyncio.TimeoutError:
             return await ctx.author.send("```diff\n- You took too long. Try again, please.```")
         await ctx.author.send(
             "Do you have any previous experience? If so, please describe."
         )
         try:
-            experience = await self.bot.wait_for("message", timeout=600, check=check)
+            experience = await self.bot.wait_for("message", timeout=900, check=check)
         except asyncio.TimeoutError:
             return await ctx.author.send("```diff\n- You took too long. Try again, please.```")
         await ctx.author.send("Why do you want to be a member of our team?")
         try:
-            reason = await self.bot.wait_for("message", timeout=600, check=check)
+            reason = await self.bot.wait_for("message", timeout=900, check=check)
         except asyncio.TimeoutError:
             return await ctx.author.send("```diff\n- You took too long. Try again, please.```")
         embed = discord.Embed(color=await ctx.embed_colour(), timestamp=datetime.now())
