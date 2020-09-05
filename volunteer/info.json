@@ -1,8 +1,36 @@
 {
-    "author" : ["saurichable & xBlynd"],
-    "install_msg" : "This cog has been modified to accept volunteers towards a variety of roles.**",
-    "name" : "Volunteer",
-    "short" : "Simple application cog.",
-    "description" : "Just a simple volunteer cog.",
-    "tags" : ["volunteer", "app"]
+    "author" : [
+        "saurichable",
+		"Blynd",
+		"AWildTeddyBear (Sgt. Cuddles#0001)"
+    ],
+    "description" : "A volunteer system for xH community",
+    "disabled" : false,
+    "end_user_data_statement" : "This cog stores User ID's and voluntary information for the purposes of team applications.",
+    "hidden" : false,
+    "install_msg" : "This was a custom cog that was made for some stuff for our community.  Most cogs will be hardcoded to our discord.  *That is your warning*",
+    "max_bot_version" : "0.0.0",
+    "min_bot_version" : "3.1.8",
+    "min_python_version" : [
+        3,
+        7,
+        2
+    ],
+    "name" : "eve-Cogs",
+    "permissions" : [
+        "embed_links",
+		"manage_messages",
+		"manage_roles",
+        "manage_channels"
+    ],
+    "required_cogs" : {},
+    "requirements" : [
+        
+    ],
+    "short" : "xH Community commands",
+    "tags" : [
+		"xH",
+		"Utility"
+    ],
+    "type" : "COG"
 }
