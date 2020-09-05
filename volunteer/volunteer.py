@@ -71,11 +71,11 @@ class Volunteer(commands.Cog):
             await ctx.author.send(
                 """
 **Looking to join one of the xH Community Support Teams?**
-The roles listed below are currently looking for volunteers.  If you are interested in joining one of our teams, we have a small application for you.
+The roles listed below are currently looking for volunteers.  We have a few questions just to get a little background/info.
 
 **__Moderator Team:__** Volunteers that help monitor and maintain the communities rules and values in our discord.
 
-**_Development Team:__** A group of hobbyist and professionals that assist in gameserver creation, server management, game modding, website development, support the Community Outreach Team, etc.
+**__Development Team:__** A group of hobbyist and professionals that assist in gameserver creation, server management, game modding, website development, support the Community Outreach Team, etc.
 
 **__Design Team:__** They make the community look awesome...  The creative members of the community that have talent in the design world and help with logos, website design, gameserver design, support the Community Outreach Team, etc..
 
