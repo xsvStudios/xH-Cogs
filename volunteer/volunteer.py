@@ -83,7 +83,7 @@ The roles listed below are currently looking for volunteers.  We have a few ques
 
 ~~**__Game Server Admins__** - Volunteers to assist in our active game servers.~~ *Coming soon! Check back later.*
 
-```diff\n- Applications will be reviewed by the `xH Community Council`.  A update from the team will be sent to you no longer then 7 days after app is submitted.  *We tend to move faster then this, however life has been difficult for all this year.*
+```diff\n- Applications will be reviewed by the xH Community Council.  A update from the team will be sent to you no longer then 7 days after app is submitted.  We tend to move faster then this, however life has been difficult for all this year.
 ```
 ***What position are you applying for?***
 *You have maximum of 15 minutes for each following question.*              
