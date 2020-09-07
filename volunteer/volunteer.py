@@ -56,7 +56,7 @@ class Volunteer(commands.Cog):
         if ctx.guild not in self.antispam:
             self.antispam[ctx.guild] = {}
         if ctx.author not in self.antispam[ctx.guild]:
-            self.antispam[ctx.guild][ctx.author] = AntiSpam([(timedelta(days=2), 1)])
+            self.antispam[ctx.guild][ctx.author] = AntiSpam([(timedelta(minutes=30), 1)])
         if self.antispam[ctx.guild][ctx.author].spammy:
             return await ctx.send("Uh oh, you're doing this way too frequently.")
         if not role_add:
