@@ -215,7 +215,7 @@ After your **6** month period your application for **Member** tags will go to a 
     @commands.command()
     async def donate(self, ctx: commands.Context):
         """
-            Become a Community Donor for perks!
+            Donate to help support our community!
             https://www.patreon.com/xhcommunity
         """
         msg = (
@@ -242,15 +242,6 @@ __Accountability__
 Donations are a very overlooked item.  Most people don't look into how this is used.  We disagree with this concept as we have witnessed members stealing donations for personal gain.  All money in which anyone donates to group is required to be 100% accounted for.  
 The one thing we strive to do is make sure our books are open.  All donations received are added to a community fund controlled by the **Council**.   Any withdrawal from donations requires community approval.  Community meetings are hosted once a month to review the accounts as to eliminate any abuse.
 
-__Donor Perks__
-We offer some sweet ass perks for monthly donors for a little as $5 a month.  (This basically works off family plan accounts.)
-- Private Discord Channel Access
-- Whitelisted and VIP status on all gameservers
-- Office 365
-- VPN's
-- Cloud Services
-- Streaming Services
-- Flex Streaming 1k+ Movies and TV Shows (currently relocating)
         """
         await ctx.maybe_send_embed(text)
 
