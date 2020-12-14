@@ -151,7 +151,7 @@ __**Public Roles**__
     @commands.command()
     async def joinus(self, ctx):
         """
-        Join our team!
+        How to become a member
         """
         text = """
 **Join this Community**
