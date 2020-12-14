@@ -25,7 +25,7 @@ class Information(commands.Cog):
     @commands.command()
     async def ourroles(self, ctx):
         """
-            Community Rules
+            xH Community Roles Explained
         """
         text = """
 __**Community Roles Explained**__
@@ -103,7 +103,7 @@ __**Public Roles**__
     @commands.command()
     async def modguide(self, ctx):
         """
-        Moderator Guide
+        xH Moderator Guidelines and Policies
         """
         text = """**Community Moderator Guide**
 
