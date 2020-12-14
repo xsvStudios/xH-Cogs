@@ -246,25 +246,25 @@ The one thing we strive to do is make sure our books are open.  All donations re
         await ctx.maybe_send_embed(text)
 
 
-    @commands.command()
-    async def delegateAll(self, ctx):
-        """I delegate to **All** the fucking staff. \n **Support Team** and **Council**"""
-        memlist = []
+    # @commands.command()
+    # async def delegateAll(self, ctx):
+    #     """I delegate to **All** the fucking staff. \n **Support Team** and **Council**"""
+    #     memlist = []
 
-        for m in ctx.guild.get_role(264156088440455168).members:
-            memlist.append(m)
-        for m in ctx.guild.get_role(709928089743917066).members:
-            memlist.append(m)
-        for m in ctx.guild.get_role(709174224324919326).members:
-            memlist.append(m)
-        await ctx.send(random.choice(memlist).mention)
+    #     for m in ctx.guild.get_role(264156088440455168).members:
+    #         memlist.append(m)
+    #     for m in ctx.guild.get_role(709928089743917066).members:
+    #         memlist.append(m)
+    #     for m in ctx.guild.get_role(709174224324919326).members:
+    #         memlist.append(m)
+    #     await ctx.send(random.choice(memlist).mention)
 
-    @commands.command()
-    async def voluntold(self,ctx):
-        """I volunteer **Support Team** for the dumb shit.."""
-        await ctx.send(random.choice(ctx.guild.get_role(727367693996523631).members).mention)
+    # @commands.command()
+    # async def voluntold(self,ctx):
+    #     """I volunteer **Support Team** for the dumb shit.."""
+    #     await ctx.send(random.choice(ctx.guild.get_role(727367693996523631).members).mention)
 
-    @commands.command()
-    async def delegate(self,ctx):
-        """I delegate to a **Council** member for the dumb shit.."""
-        await ctx.send(random.choice(ctx.guild.get_role(687186781388537858).members).mention)
+    # @commands.command()
+    # async def delegate(self,ctx):
+    #     """I delegate to a **Council** member for the dumb shit.."""
+    #     await ctx.send(random.choice(ctx.guild.get_role(687186781388537858).members).mention)
