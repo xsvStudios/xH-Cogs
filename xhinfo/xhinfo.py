@@ -228,7 +228,7 @@ After your **6** month period your application for **Member** tags will go to a 
     @commands.command()
     async def donations(self, ctx):
         """
-        Our community Rules
+        Community donation policiess explained.  
         """
         text = """
 
