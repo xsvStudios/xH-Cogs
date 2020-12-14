@@ -216,10 +216,11 @@ After your **6** month period your application for **Member** tags will go to a 
     async def donate(self, ctx: commands.Context):
         """
             Donate to help support our community!
-            https://www.patreon.com/xhcommunity
         """
         msg = (
-            "Help support the communities gameservers and bs operations costs."
+            """Help support the communities gameservers and bs operations costs at
+            https://www.patreon.com/xhcommunity"""
+
             "Find out more at the Monthly Community Donor Meeting"
             
         )
