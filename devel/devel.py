@@ -1,15 +1,10 @@
 from redbot.core import commands
 
 class Devel(commands.Cog):
-    """
-    This is a random development from Blynd.
-    
-    """
-      def __init__(self, bot):
-        self.bot = bot
+    """Testing over"""
 
-    
     @commands.command()
     async def testy(self, ctx):
-        text = "Hello World"
-        await ctx.maybe_embed(simple_text)
+        """This does stuff!"""
+        # Your code will go here
+        await ctx.send("I can break things thats for sure!")
