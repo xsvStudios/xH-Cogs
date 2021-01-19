@@ -8,4 +8,4 @@ class Devel(commands.Cog):
         """This does stuff!"""
         # Messing with embeds for a bit.
         text = "This is a embed test?  please work?"
-        await ctx.send(text)
+        await ctx.embed(text)
