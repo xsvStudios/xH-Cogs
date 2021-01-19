@@ -6,5 +6,6 @@ class Devel(commands.Cog):
     @commands.command()
     async def testy(self, ctx):
         """This does stuff!"""
-        # Your code will go here
-        await ctx.send("I can do stuff!")
+        # Messing with embeds for a bit.
+        text = "This is a embed test?  please work?"
+        await ctx.send(text)
