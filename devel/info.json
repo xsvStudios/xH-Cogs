@@ -1,0 +1,29 @@
+{
+    "author" : [
+        "Blynd"
+    ],
+    "description" : "A bit a testing by blynd.",
+    "disabled" : false,
+    "end_user_data_statement" : "This cog stores User ID's for the purpose and tracking voice channel activity",
+    "hidden" : false,
+    "install_msg" : "These are completely useless and in most cases were examples for friends",
+    "max_bot_version" : "0.0.0",
+    "min_bot_version" : "3.1.8",
+    "min_python_version" : [
+        3,
+        7,
+        2
+    ],
+    "name" : "Development",
+    "permissions" : [
+        "embed_links",
+        "manage_messages",
+        "manage_channels"
+    ],
+    "required_cogs" : {},
+    "requirements" : [],
+    "short" : "Blynds BS",
+    "tags" : [
+    ],
+    "type" : "COG"
+}
