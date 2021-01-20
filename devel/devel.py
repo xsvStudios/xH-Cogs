@@ -30,9 +30,9 @@ class Devel(commands.Cog):
     @commands.guild_only()
     @check.bot_has_permissions(manage_channels=True, manage_rules=True)
     async def appsetup(self, ctx: commands.Context):
-    """
-    Junior Member app setup.
-    """
+        """
+        Junior Member app setup.
+        """
 # Need to add predictions it appears Red has already included this in documentation.
 #redbot.core.utils.predicates
         junior_member = get(
