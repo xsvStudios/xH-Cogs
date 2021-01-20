@@ -3,6 +3,8 @@ import discord
 
 from redbot.core import Config, checks, commands
 
+from redbot.core.bot import Red
+
 class Devel(commands.Cog):
     """
     This will end of being a Junior Member 
