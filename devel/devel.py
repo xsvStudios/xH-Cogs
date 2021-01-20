@@ -1,4 +1,7 @@
-from redbot.core import commands, checks
+import asyncio
+import discord 
+
+from redbot.core import Config, checks, commands
 
 class Devel(commands.Cog):
     """
