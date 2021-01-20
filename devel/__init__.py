@@ -2,4 +2,4 @@ from .devel import Devel
 
 
 def setup(bot):
-    bot.add_cog(Devel())
+    bot.add_cog(Devel(bot))
