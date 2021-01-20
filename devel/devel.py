@@ -31,7 +31,7 @@ class Devel(commands.Cog):
     @checks.admin_or_permissions(administrator=True)
     @commands.command()
     @commands.guild_only()
-    @check.bot_has_permissions(manage_channels=True, manage_rules=True)
+    # @check.bot_has_permissions(manage_channels=True, manage_rules=True)
     async def appsetup(self, ctx: commands.Context):
         """
         Junior Member app setup.
