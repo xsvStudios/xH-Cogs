@@ -29,7 +29,7 @@ class Devel(commands.Cog):
     @commands.command()
     @commands.guild_only()
     @check.bot_has_permissions(manage_channels=True, manage_rules=True)
-    asych def appsetup(self, ctx: commands.Context):
+    async def appsetup(self, ctx: commands.Context):
     """
     Junior Member app setup.
     """
