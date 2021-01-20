@@ -58,4 +58,4 @@ class Devel(commands.Cog):
         embed.add_field(name='Are you setting up for Member Apps?', value='Hit the ***')
         embed.set_footer(text='Brought to you by xH Development team')
 
-        await ctx.send(embed=opener_em)
+        await ctx.send(opener_em=embed)
