@@ -53,9 +53,11 @@ class Devel(commands.Cog):
         channel = get(
             ctx.guild.text_channels, name="apps"
             )
-        opener_em = discord.Embed(color=0xEE2222, title='xH Community Application')
-        embed.add_field(name='Are you setting up for Staff?', value='Hit the ***')
-        embed.add_field(name='Are you setting up for Member Apps?', value='Hit the ***')
-        embed.set_footer(text='Brought to you by xH Development team')
 
-        await ctx.send(opener_em)
+
+        opener_em = discord.Embed(color=0xEE2222, title='xH Community Application')
+        opener_em.add_field(name='Are you setting up for Staff?', value='Hit the ***')
+        opener_em.add_field(name='Are you setting up for Member Apps?', value='Hit the ***')
+        opener_em.set_footer(text='Brought to you by xH Development team')
+
+        await ctx.send(embed=opener_em)
