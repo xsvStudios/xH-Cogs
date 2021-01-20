@@ -61,3 +61,32 @@ class Devel(commands.Cog):
         opener_em.set_footer(text='Brought to you by xH Development team')
 
         await ctx.send(embed=opener_em)
+
+
+
+    @commands.command()
+    async def applying(self, ctx):
+        # Temp var in ..xsvVars(this will be supplied from somewhere else)
+
+        # Global embeds list
+        embeds = []
+
+        # Display server info. Yeah
+        for x in exampleVars:
+            # Construct embed
+            embed = discord.Embed(color=0xffffff, title='xH Something')
+            embed.set_thumbnail(url='https://cdn.discordapp.com/icons/91893458385539072/6215e31e08552a5dff0f523e21f8302b.webp?size=1024')
+
+            # Server name
+            embed.add_field(name='Name', value=str(x['Name']), inline=True)
+
+            # Print donors and admins if exists
+            for serverAttrib in ['Staff', 'Dev', 'Office', 'Role']:
+                if serverAttrib in x['Info']:
+                    if len(x['Info'][serverAttrib]) > 0:
+                        embed.add_field(name=serverAttrib, value='\n'.join(x['Info'][serverAttrib]), inline=True)
+
+            # Add embed to list
+            embeds.append(embed)
+
+        await menu(ctx, embeds, DEFAULT_CONTROLS)
