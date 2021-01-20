@@ -16,6 +16,9 @@ class Devel(commands.Cog):
 
     def __init__(self,bot):
         self.bot = bot
+        self.config = Config.get_conf(
+            self, 19882411293845, force_registration=True
+        )
         self.config.register_guild(
             junior_member_id=None,
             channel_id=None,
