@@ -5,7 +5,7 @@ defaults = {"Tasks": []
             }
 
 
-class Worklist: 
+class Worklist(commands.Cog):
     """
     This will end of being a worklist cog 
     to track you know... tasks
