@@ -24,3 +24,10 @@ class Worklist(commands.Cog):
         async with self.database.guild(ctx.guild).Tasks() as tasks:
             tasks.append(task.lower())
         await ctx.maybe_send_embed(f"{task.lower()} task was added to worklist.")  
+
+
+
+    @commands.command()
+    async def tasks(self, ctx):
+        data = await self.database.guild(ctx.guild).all()
+        await ctx.send(data)
