@@ -5,7 +5,7 @@ defaults = {"Tasks": []
             }
 
 
-class Tasks: 
+class Worklist: 
 
     def __init__(self):
         self.database = Config.get_conf(self, identifier=88193037185923, force_registration=True)
