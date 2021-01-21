@@ -6,8 +6,16 @@ defaults = {"Tasks": []
 
 
 class Worklist: 
+    """
+    This will end of being a worklist cog 
+    to track you know... tasks
+    """
 
-    def __init__(self):
+    __author = "blynd"
+    __version__ = "1.0.1"
+
+    def __init__(self,bot):
+        self.bot = bot
         self.database = Config.get_conf(self, identifier=88193037185923, force_registration=True)
         self.database.register_guild(**defaults)
 
