@@ -12,7 +12,6 @@ class Tasks:
         self.database.register_guild(**defaults)
 
     @commands.command()
-    @commands.cooldown(rate=1, per=86400, type=BucketType.user)
     async def addtask(self, ctx, task: str):
         async with self.database.guild(ctx.guild).Tasks() as tasks:
             tasks.append(task.lower())
