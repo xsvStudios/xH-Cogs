@@ -3,6 +3,7 @@ import discord
 
 from redbot.core import Config
 from redbot.core import commands
+from redbot.core.utils.menus import menu, DEFAULT_CONTROLS
 
 defaults = {"Tasks": []
             }
@@ -49,7 +50,7 @@ class Worklist(commands.Cog):
         Prints all tasks on worklist
         """
         embeds = []
-        
+
         for x in defaults:
         # Construct embed
             embed = discord.Embed(color=0xffffff, title='Worklist')
