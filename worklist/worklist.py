@@ -5,8 +5,18 @@ from redbot.core import Config
 from redbot.core import commands
 from redbot.core.utils.menus import menu, DEFAULT_CONTROLS
 
-defaults = {"Tasks": []
-            }
+defaults = {
+  "Tasks": {
+    "task_id":{
+      "id": "",
+      "description": "",
+      "priority": 0,
+      "assigned": "",
+      "due_date": ""
+    }
+  }
+}
+            
 
 
 class Worklist(commands.Cog):
