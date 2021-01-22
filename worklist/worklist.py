@@ -27,9 +27,9 @@ class Worklist(commands.Cog):
         pre_processed = super().format_help_for_context(ctx)
         return f"{pre_processed}\n\nCog Version: {self.__version__}"
 
-        
+
     @commands.command()
-    async def addtask(self, ctx, task: str):
+    async def addtask(self, ctx: commands.Context, *, task: str):
         async with self.database.guild(ctx.guild).Tasks() as tasks:
             tasks.append(task)
         await ctx.maybe_send_embed(f"{task} task was added to worklist.")  
