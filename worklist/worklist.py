@@ -58,7 +58,7 @@ class Worklist(commands.Cog):
                 embed.add_field(name='Task', value=['Tasks'], inline=False)
 
         #add embed
-        embeds.append(embed)
+            embeds.append(embed)
 
         await menu(ctx, embeds, DEFAULT_CONTROLS)
         # data = await self.database.guild(ctx.guild).all()
