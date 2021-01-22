@@ -48,11 +48,11 @@ class Worklist(commands.Cog):
 
         for x in defaults:
         # Construct embed
-        embed = discord.Embed(color=0xffffff, title='Worklist')
-        embed.set_thumbnail(url='https://cdn.discordapp.com/icons/91893458385539072/6215e31e08552a5dff0f523e21f8302b.webp?size=1024')
-    
-        for taskItems in ['Tasks']:
-            embed.add_field(name='Task', value=f'{task}', inline=False)
+            embed = discord.Embed(color=0xffffff, title='Worklist')
+            embed.set_thumbnail(url='https://cdn.discordapp.com/icons/91893458385539072/6215e31e08552a5dff0f523e21f8302b.webp?size=1024')
+        
+            for taskItems in ['Tasks']:
+                embed.add_field(name='Task', value=f'{task}', inline=False)
 
         #add embed
         embeds.append(embed)
