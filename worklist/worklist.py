@@ -55,7 +55,7 @@ class Worklist(commands.Cog):
             embed.set_thumbnail(url='https://cdn.discordapp.com/icons/91893458385539072/6215e31e08552a5dff0f523e21f8302b.webp?size=1024')
         
             for taskItems in ['defaults']:
-                embed.add_field(name='Task', value=str(x['Tasks']), inline=False)
+                embed.add_field(name='Task', value=x['Tasks'], inline=False)
 
         #add embed
         embeds.append(embed)
