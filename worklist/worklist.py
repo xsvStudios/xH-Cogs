@@ -19,6 +19,15 @@ class Worklist(commands.Cog):
         self.database = Config.get_conf(self, identifier=88193037185923, force_registration=True)
         self.database.register_guild(**defaults)
 
+
+    def format_help_for_context(self, ctx: commands.Context) -> str:
+        """
+        Thanks Sinbad!
+        """
+        pre_processed = super().format_help_for_context(ctx)
+        return f"{pre_processed}\n\nCog Version: {self.__version__}"
+
+        
     @commands.command()
     async def addtask(self, ctx, task: str):
         async with self.database.guild(ctx.guild).Tasks() as tasks:
