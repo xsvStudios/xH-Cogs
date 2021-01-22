@@ -22,7 +22,7 @@ class Worklist(commands.Cog):
     @commands.command()
     async def addtask(self, ctx, task: str):
         async with self.database.guild(ctx.guild).Tasks() as tasks:
-            tasks.append(task.lower())
+            tasks.append(task())
         await ctx.maybe_send_embed(f"{task()} task was added to worklist.")  
 
 
