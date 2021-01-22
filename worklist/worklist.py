@@ -48,7 +48,8 @@ class Worklist(commands.Cog):
         """
         Prints all tasks on worklist
         """
-
+        embeds = []
+        
         for x in defaults:
         # Construct embed
             embed = discord.Embed(color=0xffffff, title='Worklist')
