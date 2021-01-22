@@ -49,19 +49,12 @@ class Worklist(commands.Cog):
         """
         Prints all tasks on worklist
         """
-        embeds = []
-
-        for x in defaults:
-        # Construct embed
-            embed = discord.Embed(color=0xffffff, title='Worklist')
-            embed.set_thumbnail(url='https://cdn.discordapp.com/icons/91893458385539072/6215e31e08552a5dff0f523e21f8302b.webp?size=1024')
-        
-            for taskItems in ['defaults']:
-                embed.add_field(name='Task', value=['Tasks'], inline=False)
-
-        #add embed
-            embeds.append(embed)
-
-        await menu(ctx, embeds, DEFAULT_CONTROLS)
+        guild = ctx.meesage.guild
+        task_list = await self.config.guild(guild).Tasks()
+        msg = "Tasklist:\n\n"
+        for c, m in enumerate(task_list):
+            msg += "  {}. {}\n".format(c, m)
+        for page in pagify(msg, ["\n", " "], shorten_by=20):
+            await ctx.send("```\n{}\n```".format(page))
         # data = await self.database.guild(ctx.guild).all()
         # await ctx.maybe_send_embed(data)
