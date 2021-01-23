@@ -67,7 +67,7 @@ class Worklist(commands.Cog):
         """
 
         """
-
+    guild =  ctx.message.guild
     worklists_test = await self.config.guild(guild).description()
     for m in worklists_test:
         msg += "  {}. {}\n".format(c)
