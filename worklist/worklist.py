@@ -71,6 +71,6 @@ class Worklist(commands.Cog):
         worklists_test = await self.database.guild(ctx.guild).Worklist()
         msg = "This should give me a list?"
         for m in worklists_test:
-            msg += "  {}. {}\n".format(c)
+            msg += "  {}. {}\n".format(m)
         for page in pagify(msg, ["\n", " "], shorten_by=20):
             await ctx.send("```\n{}\n```".format(page))
