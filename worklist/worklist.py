@@ -6,7 +6,7 @@ from redbot.core import commands
 from redbot.core.utils.menus import menu, DEFAULT_CONTROLS
 
 defaults = {
-  "Tasks": {
+  "Worklist": {
     "task_id":{
       "id": "",
       "description": "",
@@ -48,8 +48,8 @@ class Worklist(commands.Cog):
         Add a task to worklist
         """
 
-        async with self.database.guild(ctx.guild).Tasks() as tasks:
-            tasks.append(task)
+        async with self.database.guild(ctx.guild).Worklist([description]) as tasks:
+            tasks.append(Worklist)
         await ctx.maybe_send_embed(f"{task} task was added to worklist.")  
 
 
