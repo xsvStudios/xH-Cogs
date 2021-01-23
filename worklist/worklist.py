@@ -68,7 +68,7 @@ class Worklist(commands.Cog):
 
         """
         guild =  ctx.message.guild
-        worklists_test = await self.database.guild(ctx.guild).Worklist()
+        worklists_test = await self.database.guild(ctx.guild).Worklist.description()
         msg = "This should give me a list?"
         for m in worklists_test:
             msg += "  {}. {}\n".format(m)
