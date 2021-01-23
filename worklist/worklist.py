@@ -7,15 +7,6 @@ from redbot.core.utils.menus import menu, DEFAULT_CONTROLS
   
 
 defaults = {
-    "id": 0,
-    "description": "fuck you",
-    "priority": -1,
-    "assigned": "nobody"
-    "due_date": 1
-}
-
-
-default = {
     "Worklist": []
     }
 
