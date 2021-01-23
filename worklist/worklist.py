@@ -1,9 +1,6 @@
-import asyncio
 import discord
 
-from redbot.core import Config
-from redbot.core import commands
-from redbot.core.utils.menus import menu, DEFAULT_CONTROLS
+from redbot.core import Config, commands
   
 
 defaults = {
@@ -63,18 +60,3 @@ class Worklist(commands.Cog):
         """
         data = await self.database.guild(ctx.guild).Worklist()
         await ctx.maybe_send_embed(str(data))
-
-
-
-
-    # @commands.command()
-    # async def newtask(self, ctx: commands.Context, *, format_msg: str) -> None:)
-    # """
-
-    # """
-
-    # guild = ctx.message.guild
-    # guild_settings = await self.config.guild(guild).description()
-    # guild_settings.append(format_msg)
-    # await self.config.guild(guild).description.set(guild_settings)
-    # await ctx.send(_("This should be added"))
