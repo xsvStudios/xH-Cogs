@@ -41,7 +41,7 @@ class Worklist(commands.Cog):
         Add a task to worklist
         """
         task = {
-            "id": "",
+            "id": -1,
             "description": "",
             "priority": 0,
             "assigned": "",
@@ -49,10 +49,12 @@ class Worklist(commands.Cog):
             }
 
         async with self.database.guild(ctx.guild).Worklist() as tasks:
+            taskid = len(tasks) + 1 if len(tasks) > 0 else 0
+            task['id'] = taskid
             tasks.append(task)
 
         
-        await ctx.maybe_send_embed(f"{task} task was added to worklist.")  
+        await ctx.maybe_send_embed(f"{task['id']} task was added to worklist.")  
 
 
 
