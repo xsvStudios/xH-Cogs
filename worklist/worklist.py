@@ -63,7 +63,7 @@ class Worklist(commands.Cog):
 
 
     @commands.command()
-    async def taskswhat(self, ctx):
+    async def taskswhat(self, ctx: commands.Context) -> None:
         """
 
         """
