@@ -49,7 +49,7 @@ class Worklist(commands.Cog):
         """
 
         async with self.database.guild(ctx.guild).Worklist() as tasks:
-            tasks.append(task)
+            tasks.append(description)
         await ctx.maybe_send_embed(f"{task} task was added to worklist.")  
 
 
