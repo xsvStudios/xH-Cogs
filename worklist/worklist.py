@@ -62,7 +62,7 @@ class Worklist(commands.Cog):
         Prints all tasks on worklist
         """
         data = await self.database.guild(ctx.guild).Worklist()
-        await ctx.maybe_send_embed(data)
+        await ctx.maybe_send_embed(str(data))
 
 
 
