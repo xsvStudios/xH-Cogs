@@ -58,7 +58,7 @@ class Worklist(commands.Cog):
         """
         Prints all tasks on worklist
         """
-        data = await self.database.guild(ctx.guild).Worklist['id']()
+        data = await self.database.guild(ctx.guild).Worklist()
         await ctx.maybe_send_embed(str(data))
 
 
@@ -68,7 +68,7 @@ class Worklist(commands.Cog):
 
         """
         guild =  ctx.message.guild
-        worklists_test = await self.database.guild(ctx.guild).description()
+        worklists_test = await self.database.guild(ctx.guild).Worklist()
         for m in worklists_test:
             msg += "  {}. {}\n".format(c)
         for page in pagify(msg, ["\n", " "], shorten_by=20):
