@@ -36,21 +36,19 @@ class Worklist(commands.Cog):
 
 
     @commands.command()
-    async def addtask(self, ctx: commands.Context, *, task: str):
+    async def addtask(self, ctx: commands.Context, *, format_msg: str):
         """
         Add a task to worklist
         """
         task = {
             "id": -1,
             "description": "",
-            "priority": 0,
-            "assigned": "",
-            "due_date": ""
             }
 
         async with self.database.guild(ctx.guild).Worklist() as tasks:
-            taskid = len(tasks) + 1 if len(tasks) > 0 else 0
+            taskid = len(tasks) + 1 if len(tasks) > 0 else 1
             task['id'] = taskid
+            task['description'] = format_msg
             tasks.append(task)
 
         
