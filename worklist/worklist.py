@@ -4,6 +4,16 @@ import discord
 from redbot.core import Config
 from redbot.core import commands
 from redbot.core.utils.menus import menu, DEFAULT_CONTROLS
+  
+
+defaults = {
+    "id": 0,
+    "description": "fuck you",
+    "priority": -1,
+    "assigned": "nobody"
+    "due_date": 1
+}
+
 
 defaults = {
   "Tasks": {
@@ -16,7 +26,6 @@ defaults = {
     }
   }
 }
-            
 
 
 class Worklist(commands.Cog):
@@ -42,15 +51,18 @@ class Worklist(commands.Cog):
         return f"{pre_processed}\n\nCog Version: {self.__version__}"
 
 
-    # @commands.command()
-    # async def addtask(self, ctx: commands.Context, *, task: str):
-    #     """
-    #     Add a task to worklist
-    #     """
+    @commands.command()
+    async def addtask(self, ctx: commands.Context, *, task: str):
+        """
+        Add a task to worklist
+        """
+        lastid = [x for x in defaults if x['id']]
 
-    #     async with self.database.guild(ctx.guild).Tasks() as tasks:
-    #         tasks.append(task)
-    #     await ctx.maybe_send_embed(f"{task} task was added to worklist.")  
+        async with self.database.guild(ctx.guild).Tasks() as tasks:
+            tasks.append(task)
+
+        
+        await ctx.maybe_send_embed(f"{task} task was added to worklist.")  
 
 
 
@@ -59,27 +71,20 @@ class Worklist(commands.Cog):
         """
         Prints all tasks on worklist
         """
-        guild = ctx.meesage.guild
-        task_list = await self.config.guild(guild).Tasks()
-        msg = "Tasklist:\n\n"
-        for c, m in enumerate(task_list):
-            msg += "  {}. {}\n".format(c, m)
-        for page in pagify(msg, ["\n", " "], shorten_by=20):
-            await ctx.send("```\n{}\n```".format(page))
-        # data = await self.database.guild(ctx.guild).all()
-        # await ctx.maybe_send_embed(data)
+        data = await self.database.guild(ctx.guild).all()
+        await ctx.maybe_send_embed(data)
 
 
 
 
-    @commands.command()
-    async def newtask(self, ctx: commands.Context, *, format_msg: str) -> None:)
-    """
+    # @commands.command()
+    # async def newtask(self, ctx: commands.Context, *, format_msg: str) -> None:)
+    # """
 
-    """
+    # """
 
-    guild = ctx.message.guild
-    guild_settings = await self.config.guild(guild).description()
-    guild_settings.append(format_msg)
-    await self.config.guild(guild).description.set(guild_settings)
-    await ctx.send(_("This should be added"))
+    # guild = ctx.message.guild
+    # guild_settings = await self.config.guild(guild).description()
+    # guild_settings.append(format_msg)
+    # await self.config.guild(guild).description.set(guild_settings)
+    # await ctx.send(_("This should be added"))
