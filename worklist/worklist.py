@@ -18,7 +18,7 @@ defaults = {
 defaults = {
   "Tasks": {
     "task_id":{
-      "id": "",
+      "id": 0,
       "description": "",
       "priority": 0,
       "assigned": "",
