@@ -15,17 +15,10 @@ defaults = {
 }
 
 
-defaults = {
-  "Tasks": {
-    "task_id":{
-      "id": 0,
-      "description": "",
-      "priority": 0,
-      "assigned": "",
-      "due_date": ""
+default = {
+    "Worklist": []
     }
-  }
-}
+
 
 
 class Worklist(commands.Cog):
@@ -56,9 +49,15 @@ class Worklist(commands.Cog):
         """
         Add a task to worklist
         """
-        lastid = [x for x in defaults if x['id']]
+        task = {
+            "id": "",
+            "description": "",
+            "priority": 0,
+            "assigned": "",
+            "due_date": ""
+            }
 
-        async with self.database.guild(ctx.guild).Tasks() as tasks:
+        async with self.database.guild(ctx.guild).Worklist() as tasks:
             tasks.append(task)
 
         
