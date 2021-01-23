@@ -60,3 +60,16 @@ class Worklist(commands.Cog):
         """
         data = await self.database.guild(ctx.guild).Worklist()
         await ctx.maybe_send_embed(str(data))
+
+
+    @commands.command()
+    async def taskswhat(self, ctx):
+        """
+
+        """
+
+    worklists_test = await self.config.guild(guild).description()
+    for m in worklists_test:
+        msg += "  {}. {}\n".format(c)
+    for page in pagify(msg, ["\n", " "], shorten_by=20):
+        await ctx.send("```\n{}\n```".format(page))
