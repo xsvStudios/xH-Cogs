@@ -42,15 +42,15 @@ class Worklist(commands.Cog):
         return f"{pre_processed}\n\nCog Version: {self.__version__}"
 
 
-    @commands.command()
-    async def addtask(self, ctx: commands.Context, *, task: str):
-        """
-        Add a task to worklist
-        """
+    # @commands.command()
+    # async def addtask(self, ctx: commands.Context, *, task: str):
+    #     """
+    #     Add a task to worklist
+    #     """
 
-        async with self.database.guild(ctx.guild).Tasks() as tasks:
-            tasks.append(task)
-        await ctx.maybe_send_embed(f"{task} task was added to worklist.")  
+    #     async with self.database.guild(ctx.guild).Tasks() as tasks:
+    #         tasks.append(task)
+    #     await ctx.maybe_send_embed(f"{task} task was added to worklist.")  
 
 
 
@@ -68,3 +68,18 @@ class Worklist(commands.Cog):
             await ctx.send("```\n{}\n```".format(page))
         # data = await self.database.guild(ctx.guild).all()
         # await ctx.maybe_send_embed(data)
+
+
+
+
+    @commands.command()
+    async def newtask(self, ctx: commands.Context, *, format_msg: str) -> None:)
+    """
+
+    """
+
+    guild = ctx.message.guild
+    guild_settings = await self.config.guild(guild).description()
+    guild_settings.append(format_msg)
+    await self.config.guild(guild).description.set(guild_settings)
+    await ctx.send(_("This should be added"))
