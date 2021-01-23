@@ -52,7 +52,7 @@ class Worklist(commands.Cog):
             tasks.append(task)
 
         
-        await ctx.maybe_send_embed(f"{task['id']} task was added to worklist.")  
+        await ctx.maybe_send_embed(f"{task['description']} task was added to worklist.")  
 
 
 
